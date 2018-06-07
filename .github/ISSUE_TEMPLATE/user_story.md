@@ -1,3 +1,8 @@
+---
+name: Sprint documentation
+about: Checklist of documentation to add to project before closing sprint
+
+---
 # Title
 
 ## Story
