@@ -1,6 +1,6 @@
 ---
-name: Sprint documentation
-about: Checklist of documentation to add to project before closing sprint
+name: User Story
+about: Template for describing features of a project
 
 ---
 # Title
