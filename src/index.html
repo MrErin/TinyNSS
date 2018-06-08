@@ -3,8 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>'My Awesome Page'</title>
-    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>'This is a fun game!'</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./styles/styles.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 
 </head>
 
@@ -13,12 +16,24 @@
 
     <header></header>
 
-    <article id="contentHook">
-    </article>
+    <div id="HUD">
+        <section id="Energy" class="boxWrap">
+            <p>Energy:</p>
+            <progress id="energyBar" class="progress is-success" value="100" max="100">100%</progress>
+        </section>
+        <section id="WorkPoints"></section>
+        <section id="Needs">
+            <progress id="hungerBar" class="progress is-success" value="100" max="100">100%</progress>
+            <progress id="socialBar" class="progress is-success" value="100" max="100">100%</progress>
+            <progress id="funBar" class="progress is-success" value="100" max="100">100%</progress>
+        </section>
+        <section id="Messages"></section>
+    </div>
 
     <footer></footer>
 
     <script src="./bundle.js"></script>
+
 </body>
 
 </html>

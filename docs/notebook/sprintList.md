@@ -6,6 +6,7 @@ _**Features**_
 
 * Create Game Object
 * Create Player Character Object
+* Create Events array
 * Create Time/Ticks
 * PC's hunger stat decays according to a rate set in the Game and measured by the ticks
 
@@ -50,6 +51,7 @@ MVP!!!
 ## Final Sprint:
 
 * Check all script files for any outstanding ToDo comments
+* Styling
 
 ## Sprint 5:
 

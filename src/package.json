@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "bulma": "^0.7.1",
     "grunt": "^1.0.2",
     "grunt-bg-shell": "^2.3.3",
     "grunt-browserify": "^5.3.0",
