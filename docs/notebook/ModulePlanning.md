@@ -1,17 +1,6 @@
-# Module and Function Planning
+# Module Planning/Big Picture Notes
 
-List out all of the modules and actors that will go into this game in development order.
-
-For actors: list the name of the object and its properties and methods.
-For modules: list the functions, and list each function's inputs and outputs. Make general notes and provide links to effects on other modules as necessary.
-
-## Sections That Still Definitely Need Definition
-
-* Need Object
-  * Needs definition around how workPointsValue will work. Currently, I have that this value is the smallest number of WorkPoints an object is worth, with the thought that external factors might increase the number awarded. Not sure if I want to have that information coded in the individual event or if it should run as a buff on the PC after the initial value is given.
-  * Needs more definition around the confidenceChangeValue. I'm still not 100% sure how that process will work. Are there any objects that would change confidence or will confidence change only from events? Could events be considered need objects?
-
-## Requirements/Universals
+## Universals
 
 * You cannot ever lose Work Points
 * No object or event can give you energy: you can't make more time
@@ -27,8 +16,6 @@ For modules: list the functions, and list each function's inputs and outputs. Ma
 
 #### Data Definitions:
 
-* gameID
-  * PK, gameDifficulty.gameID
 * name
 * workPoints
   * Numeric
@@ -86,56 +73,19 @@ For modules: list the functions, and list each function's inputs and outputs. Ma
   * Can be positive or negative
   * The amount of effect this object has on the PC's fun
 
-### Non-Player Character
-
-#### Requirements & Notes:
-
-* Game will have one each of Steve, Jisie, and Kimmy, along with "X" number of students available for group work or socializing.
-
-#### Data Definitions:
-
-* name
-* isInstructor
-  * boolean
-* thumbsUpValue
-  * Numeric
-  * represents the points passed to the buff function on the player character
-
 ### Game Difficulty Object
 
 #### Requirements & Notes:
 
 * Stores the rate of decay for all needs.
-* Methods handle the decay rate calculations
 * Only one per game
 
 #### Data Definitions:
 
-* gameID
-  * FK, linked to playerCharacter.gameID
 * confidenceDecayRate
 * hungerDecayRate
 * funDecayRate
 * socialDecayRate
-
-
-//move these things to the tick object
-* (fn) decayConfidence
-  * Inputs: PC.confidence, this.confidenceDecayRate
-  * Work: evaluate whether confidence needs to be gained or lost (to balance at 0).
-  * Output: Return the positive or negative number that confidence needs to be adjusted by.
-* (fn) decayHunger
-  * Inputs: PC.hunger, this.hungerDecayRate
-  * Work: Perform calculation for decay rate
-  * Output: Return the number of hunger points the PC loses per tick
-* (fn) decayFun
-  * Inputs: PC.fun, this.funDecayRate
-  * Work: Perform calculation for decay rate
-  * Output: Return the number of fun points the PC loses per tick
-* (fn) decaySocial
-  * Inputs: PC.social, this.socialDecayRate
-  * Work: Perform calculation for decay rate
-  * Output: Return the number of social points the PC loses per tick
 
 ### Code Block Objects
 

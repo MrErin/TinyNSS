@@ -24,3 +24,13 @@ Characters may or may not have some characteristic dialogue bubbles when they ap
 ## NPC Students
   
 * PC: "Just tell me one thing that is always true"
+
+## Requirements & Notes:
+
+## Data Definitions:
+
+* name
+* isInstructor
+  * boolean
+* thumbsUpValue
+  * Numeric

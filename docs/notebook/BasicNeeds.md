@@ -1,4 +1,4 @@
-# Basic Needs
+# Basic Needs/Stats
 
 The basic needs combine to calculate the PC's wellness score.
 
@@ -15,8 +15,8 @@ The wellness method on the PC is a rollup of the individual needs. Before attemp
 
 ## Mechanics:
 
-* The four needs are constantly decaying at varying rates
-  * Stretch goal: the rate of decay could be randomly varied (except for sleep) in order to simulate people who, for example, don't need much socialiazation vs. those who need a ton of it. The user could make these selections (or some of them anyway) in choices on a setup screen.
+* The three stat needs are constantly decaying at varying rates
+  * Stretch goal: the rate of decay could be randomly varied (except for sleep) in order to simulate people who, for example, don't need much socialization vs. those who need a ton of it. The user could make these selections (or some of them anyway) in choices on a setup screen.
 * Three of the needs can be temporarily bolstered by player actions:
   * Food
     * Eating

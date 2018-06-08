@@ -3,7 +3,7 @@
 ## Win Condition
 
 * Earn X points in 10 "days" as an NSS student.
-* Achieved by fulfiling [basic needs](./BasicNeeds.md) and maintaining [confidence](./Confidence.md) in order to complete enough [Code Blocks](./CodeBlocks.md) within the time limit to win.
+* Achieved by fulfilling [basic needs](./BasicNeeds.md) to stay well enough to learn by completing [Code Blocks](./CodeBlocks.md).
 
 ## Obstacles
 
