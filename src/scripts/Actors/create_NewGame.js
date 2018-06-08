@@ -36,6 +36,7 @@ const create_NewGame = gameName => {
 	// create key in game database
 	let entityUID = 'Game'
 	gameDatabase.entities[entityUID] = game
+	gameDatabase.entities.Events = []
 	gameDatabase.save()
 	return entityUID
 }

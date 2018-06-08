@@ -9,11 +9,16 @@ _**Features**_
 * Create Time/Ticks
 * PC's hunger stat decays according to a rate set in the Game and measured by the ticks
 
-## Sprint 1.5:
+## HUD Sprint:
 
-_**Features**_
-
-* Basic HUD
+ _**Features**_
+* Messages
+* Hunger
+* Social
+* Fun
+* Work Points
+* Confidence
+* Documentation
 
 ## Sprint 2:
 
@@ -41,6 +46,10 @@ _**Features**_
 * Asking for help
 
 MVP!!!
+
+## Final Sprint:
+
+* Check all script files for any outstanding ToDo comments
 
 ## Sprint 5:
 

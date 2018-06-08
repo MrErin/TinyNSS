@@ -1,4 +1,4 @@
-const eventDatabase = require('./eventDatabase')
+const gameDatabase = require('./gameDatabase')
 
 const create_Event = (
 	name,
@@ -48,10 +48,8 @@ const create_Event = (
 		}
 	)
 
-	let entityUID = 'Event_' + name
-	eventDatabase.entities[entityUID] = event
-	eventDatabase.save()
-	return entityUID
+	gameDatabase.entities.Events.push(event)
+	gameDatabase.save()
 }
 
 module.exports = create_Event

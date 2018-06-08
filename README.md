@@ -6,16 +6,25 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 ## Currently Working On:
 
-* Core sprint: refactoring the tinkercode
+
 
 ## Current Problem:
 
-* Figure out whether to use local storage database or just objects in Javascript
-
 ## Sprint List (newest at top):
 
+* _**Sprint: HUD**_
+  * Messages
+  * Hunger
+  * Social
+  * Fun
+  * Work Points
+  * Confidence
+  * Documentation
+
+
 * _**Sprint: Core**_
-  * Create Game Object
-  * Create Player Character Object
+  * Create Game Object & Player character object
+    * Created as basic objects in Javascript
+    * Have a "new game" button that kicks off a new game (i.e., recreates the objects)
   * Create Time/Ticks
   * PC's hunger stat decays according to a rate set in the Game and measured by the ticks

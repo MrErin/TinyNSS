@@ -8,14 +8,14 @@ const IDGen = Object.create(
 		},
 		save: {
 			value: function() {
-				localStorage.setItem('IDGen', JSON.stringify(this.current))
+				const IDGen = JSON.stringify(this.current)
+				sessionStorage.setItem('IDGen', IDGen)
 			},
 		},
 		load: {
 			value: function() {
-				if (localStorage.getItem('IDGen') !== null) {
-					this.current = JSON.parse(localStorage.getItem('IDGen'))
-				}
+				const IDGen = sessionStorage.getItem('IDGen')
+				return JSON.parse(IDGen)
 			},
 		},
 	}

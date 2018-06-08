@@ -1,5 +1,6 @@
 const gameDatabase = require('./gameDatabase')
 const initializeDatabase = require('./initializeDatabase')
+const initializeEvents = require('./evt_initializeEvents')
 
 const Objectlength = object => {
 	let length = 0
@@ -16,10 +17,12 @@ const determineSave = () => {
 	if (gameDatabase.entities === null) {
 		gameDatabase.entities = {}
 		initializeDatabase()
+		initializeEvents()
 		gameDatabase.save()
 	} else if (Objectlength(gameDatabase.entities) < 2) {
 		gameDatabase.entities = {}
 		initializeDatabase()
+		initializeEvents()
 		gameDatabase.save()
 	} else {
 		gameDatabase.save()
