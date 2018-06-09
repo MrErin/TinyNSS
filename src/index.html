@@ -5,9 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>'This is a fun game!'</title>
-    <!-- <link rel="stylesheet" type="text/css" href="./styles/styles.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
     <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
+
+
 
 </head>
 
@@ -15,22 +16,43 @@
     <nav></nav>
 
     <header></header>
+    <div class="columns">
+        <div class="column">
+            <canvas></canvas>
+        </div>
+        <div id="HUD" class="column">
+            <section id="Confidence">
+                <label for="confidenceBar" id="confidenceLabel">Confidence: Current Value: timid</label>
+                <meter id="confidenceBar" class="meter-confidence" value="5" max="10" high="9" low="4" optimum="6"></meter>
 
-    <div id="HUD">
-        <section id="Energy" class="boxWrap">
-            <p>Energy:</p>
-            <progress id="energyBar" class="progress is-success" value="100" max="100">100%</progress>
-        </section>
-        <section id="WorkPoints"></section>
-        <section id="Needs">
-            <progress id="hungerBar" class="progress is-success" value="100" max="100">100%</progress>
-            <progress id="socialBar" class="progress is-success" value="100" max="100">100%</progress>
-            <progress id="funBar" class="progress is-success" value="100" max="100">100%</progress>
-        </section>
-        <section id="Messages"></section>
+            </section>
+            <section id="Energy">
+                <label for="energyBar" id="energyLabel">Energy: Current Value: 100</label>
+                <meter id="energyBar" value="100" min="0" max="100" high="60" low="30" optimum="75"></meter>
+            </section>
+            <section id="WorkPoints">
+                <label for="workBar" id="workLabel">Work: Current Value: 0</label>
+                <progress id="workBar" class="progress is-success" value="0" min="0" max="100"></progress>
+            </section>
+            <section id="Needs" class="section">
+                <h1 class="title">Player Needs</h1>
+                <label for="hungerBar" id="hungerLabel">Hunger: Current Value: 100</label>
+                <meter id="hungerBar" class="need" value="100" min="0" max="100" low="25" high="50" optimum="75"></meter>
+
+                <label for="socialBar" id="socialLabel">Social: Current Value: 100</label>
+                <meter id="socialBar" class="need" value="100" min="0" max="100" low="25" high="50" optimum="75"></meter>
+
+                <label for="funBar" id="funLabel">Fun: Current Value: 100</label>
+                <meter id="funBar" class="need" value="100" min="0" max="100" low="25" high="50" optimum="75"></meter>
+            </section>
+        </div>
     </div>
+    <h1 class="title">History:</h1>
+    <section id="History" class="section">
+    </section>
 
     <footer></footer>
+
 
     <script src="./bundle.js"></script>
 

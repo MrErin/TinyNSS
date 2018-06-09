@@ -1,1 +1,48 @@
-// @import "mystyles"
+meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #86CC00; /* Green */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A; /* Yellow */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #CC4600; /* Red */
+    border-radius: 3px;
+}
+
+.meter-confidence::-webkit-meter-suboptimum-value {
+    background: #CC4600; 
+    border-radius: 3px;
+}
+
+canvas {
+    width: 700px;
+    height: 300px;
+    background: #86CC00
+}
+#History {
+    width: 800px;
+    height: 200px;
+    overflow-y: scroll;
+    overflow-x:hidden;
+}
+#History p:first-child{
+    font-weight: 900;
+}
+
+.history {
+    padding-bottom: 5px;
+}
+
+//make customizations above this import statement
+@import "../node_modules/bulma/bulma.sass";
+@import "../node_modules/bulma-extensions/bulma-slider/dist/bulma-slider.sass"

@@ -19,15 +19,17 @@ _**Features**_
 * Fun
 * Work Points
 * Confidence
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
 * Documentation
 
 ## Sprint 2:
 
 _**Features**_
 
-* Create Events data
 * Implement decay of all PC stats
 * Events affect PC's stats
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+* Documentation
 
 ## Sprint 3:
 
@@ -38,6 +40,8 @@ _**Features**_
 * Energy Check
 * Wellness Check
 * Counting Days (end of game)
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+* Documentation
 
 ## Sprint 4:
 
@@ -45,6 +49,8 @@ _**Features**_
 
 * Code blocks
 * Asking for help
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+* Documentation
 
 MVP!!!
 
@@ -52,6 +58,8 @@ MVP!!!
 
 * Check all script files for any outstanding ToDo comments
 * Styling
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+* Documentation
 
 ## Sprint 5:
 
@@ -60,3 +68,5 @@ _**Stretch Goals**_
 * Art
 * Code block minigame
 * Confidence
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+* Documentation

@@ -2,7 +2,7 @@ const $ = require ('jquery')
 
 
 const addHistory = (message) => {
-	$('#Messages').prepend($(`<p>${message}</p>`))
+	$('#History').prepend($(`<p class="history">${message}</p>`))
 }
 
 module.exports = addHistory

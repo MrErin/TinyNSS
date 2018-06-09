@@ -6,11 +6,17 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 ## Currently Working On:
 
-* Messages HUD
+Events sprint
 
 ## Current Problem:
 
 ## Sprint List (newest at top):
+
+* _**Sprint: Events**_
+  * Implement decay of all PC stats
+  * Events affect PC's stats
+  * Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+  * Documentation
 
 * _**Sprint: HUD**_
   * Messages

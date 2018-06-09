@@ -12,7 +12,7 @@ const tick = () => {
 	// cashew says possibly need to delete player and recreate somewhere in here
 	if (needCheck('hunger')) {
 		PC.hunger += hungerDecay
-		updateBar('hungerBar', hungerDecay)
+		updateBar('hunger', hungerDecay)
 
 	} else {
 		clearInterval(ticker)
