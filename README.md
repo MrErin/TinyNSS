@@ -6,11 +6,17 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 ## Currently Working On:
 
-
+Events sprint
 
 ## Current Problem:
 
 ## Sprint List (newest at top):
+
+* _**Sprint: Events**_
+  * Implement decay of all PC stats
+  * Events affect PC's stats
+  * Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+  * Documentation
 
 * _**Sprint: HUD**_
   * Messages
@@ -23,8 +29,7 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 
 * _**Sprint: Core**_
-  * Create Game Object & Player character object
-    * Created as basic objects in Javascript
+  * Create Game Object, Player character object, and events array
     * Have a "new game" button that kicks off a new game (i.e., recreates the objects)
   * Create Time/Ticks
   * PC's hunger stat decays according to a rate set in the Game and measured by the ticks

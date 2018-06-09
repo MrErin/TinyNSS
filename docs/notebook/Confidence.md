@@ -7,7 +7,6 @@ In general, if the PC has too much confidence s/he becomes delusional and is una
 ## Confidence Range
 
 * Confidence status is a range of 0-10
-  * 0 - 3: Timid
-  * 4 - 6: Sweet Spot. Any action that "stabilizes" confidence is seeking to bring the PC into this range without going over or below it.
-  * 7 - 10: Delusional
-* If adding a means of changing game difficulty later, adjusting these ranges would probably be the easiest point to do so.
+  * 0 - 4: Timid
+  * 5 - 8: Optimum. Any action that "stabilizes" confidence is seeking to bring the PC into this range without going over or below it.
+  * 9 - 10: Delusional
