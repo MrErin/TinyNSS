@@ -1,14 +1,21 @@
 const gameDatabase = require('./gameDatabase')
 
 const create_Event = (
+	eventType,
 	name,
-	text,
-	energyChangeValue,
+	eventStartText,
+	energyBuffValue,
 	workPointValue,
-	confidenceChangeValue,
-	hungerChangeValue,
-	socialChangeValue,
-	funChangeValue
+	confidenceBuffValue,
+	hungerBuffValue,
+	socialBuffValue,
+	funBuffValue,
+	buffText,
+	debuffText,
+	debuffHunger,
+	debuffSocial,
+	debuffFun,
+	debuffConfidence
 ) => {
 	const event = Object.create(
 		{},
@@ -17,38 +24,68 @@ const create_Event = (
 				value: name,
 				enumerable: true,
 			},
-			eventText: {
-				value: text,
+			eventStartText: {
+				value: eventStartText,
 				enumerable: true,
 			},
-			energyChangeValue: {
-				value: energyChangeValue,
+			energyBuffValue: {
+				value: energyBuffValue,
 				enumerable: true,
 			},
 			workPointValue: {
 				value: workPointValue,
 				enumerable: true,
 			},
-			confidenceChangeValue: {
-				value: confidenceChangeValue,
+			confidenceBuffValue: {
+				value: confidenceBuffValue,
 				enumerable: true,
 			},
-			hungerChangeValue: {
-				value: hungerChangeValue,
+			hungerBuffValue: {
+				value: hungerBuffValue,
 				enumerable: true,
 			},
-			socialChangeValue: {
-				value: socialChangeValue,
+			socialBuffValue: {
+				value: socialBuffValue,
 				enumerable: true,
 			},
-			funChangeValue: {
-				value: funChangeValue,
+			funBuffValue: {
+				value: funBuffValue,
 				enumerable: true,
 			},
+			buffText: {
+				value: buffText,
+				enumerable: true
+			},
+			debuffText: {
+				value: debuffText,
+				enumerable: true
+			},
+			debuffValues: {
+				enumerable: true,
+				value: {
+					debuffHunger: debuffHunger,
+					debuffSocial: debuffSocial,
+					debuffFun: debuffFun,
+					debuffConfidence: debuffConfidence
+				}
+			}
 		}
 	)
 
-	gameDatabase.entities.Events.push(event)
+
+	switch (eventType) {
+	case 'food':
+		gameDatabase.entities.Events.food.push(event)
+		break
+	case 'party':
+		gameDatabase.entities.Events.parties.push(event)
+		break
+	case 'meetup':
+		gameDatabase.entities.Events.meetups.push(event)
+		break
+	default:
+		console.log(`Event ${name} not properly created.`)
+	}
 	gameDatabase.save()
 }
 

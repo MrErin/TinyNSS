@@ -9,7 +9,7 @@ let tickCounter = 1
 const tick = () => {
 	let PC = gameDatabase.entities.Player
 	const hungerDecay = gameDatabase.entities.Game.hungerDecayRate
-	// cashew says possibly need to delete player and recreate somewhere in here
+
 	if (needCheck('hunger')) {
 		PC.hunger += hungerDecay
 		updateBar('hunger', hungerDecay)

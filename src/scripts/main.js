@@ -1,6 +1,7 @@
 const determineSave = require('./Actors/determineSave')
 const tickCheck = require('./Time/tickCheck')
-const updateBar = require('./DOM/updateBar')
+const controlBuilder = require('./DOM/controlBuilder')
 
 determineSave()
 tickCheck()
+controlBuilder()

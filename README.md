@@ -15,7 +15,8 @@ Events sprint
 * _**Sprint: Events**_
   * Implement decay of all PC stats
   * Events affect PC's stats
-  * Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+  * Energy Check
+  * Create Events data (meetups and parties)
   * Documentation
 
 * _**Sprint: HUD**_

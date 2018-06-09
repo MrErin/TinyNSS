@@ -1,16 +1,8 @@
 const gameDatabase = require('./gameDatabase')
 const initializeDatabase = require('./initializeDatabase')
 const initializeEvents = require('./evt_initializeEvents')
+const objectLength = require('../Helpers/objectLength')
 
-const Objectlength = object => {
-	let length = 0
-	for (const key in object) {
-		if (object.hasOwnProperty(key)) {
-			++length
-		}
-	}
-	return length
-}
 
 const determineSave = () => {
 	gameDatabase.load()
@@ -19,7 +11,7 @@ const determineSave = () => {
 		initializeDatabase()
 		initializeEvents()
 		gameDatabase.save()
-	} else if (Objectlength(gameDatabase.entities) < 2) {
+	} else if (objectLength(gameDatabase.entities) < 3) {
 		gameDatabase.entities = {}
 		initializeDatabase()
 		initializeEvents()
