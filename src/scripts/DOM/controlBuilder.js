@@ -1,37 +1,43 @@
 const $ = require('jquery')
 const getRandomNumber = require('../Helpers/getRandomNumber')
 const buttonFactory = require('./buttonFactory')
-const updateBar = require('../DOM/updateBar')
-const addHistory = require('../DOM/addHistory')
+// const updateBar = require('../DOM/updateBar')
+// const addHistory = require('../DOM/addHistory')
 const dbLoad = require('../Helpers/dbLoader')
-const dbSave = require('../Helpers/dbSaver')
+// const dbSave = require('../Helpers/dbSaver')
+const attachEventEventHandler = require('./eventEventHandlers')
 
 
 const controlBuilder = () => {
 	const db = dbLoad()
 	const min = 0
 	const maxFood = db.Events.food.length
-	const maxParties = db.Events.parties.length
-	const maxMeetups = db.Events.meetups.length
+	// const foodNumber = getRandomNumber(min, maxFood)
+	const chosenFood = getRandomNumber(min, maxFood)
+	// const maxParties = db1.Events.parties.length
+	// const maxMeetups = db1.Events.meetups.length
 
+
+	//content, classes, id, parent
 	buttonFactory('Eat', 'button', 'eatFood', 'controls')
-	$('#eatFood').click(() => {
-		//get a random food
-		const foodNumber = getRandomNumber(min, maxFood)
-		const chosenFood = db.Events.food[foodNumber]
+	attachEventEventHandler('eatFood', 'food', chosenFood)
 
-		//update the PC object for that food
-		const PC = db.Player
-		PC.isNew = false
-		PC.hunger += chosenFood.hungerBuffValue
-		dbSave(db)
+	// $('#eatFood').click(() => {
+	// 	//get a random food
 
-		//update the bar for that food
-		updateBar('hunger')
+	// 	//update the PC object for that food
+	// 	const db2 = dbLoad()
+	// 	const PC = db2.Player
+	// 	PC.isNew = false
+	// 	PC.hunger += chosenFood.hungerBuffValue
+	// 	dbSave(db2)
 
-		//create message for that food
-		addHistory(`${PC.name} ${chosenFood.eventStartText} for ${chosenFood.hungerBuffValue} points. Yum!`)
-	})
+	// 	//update the bar for that food
+	// 	updateBar('hunger')
+
+	// 	//create message for that food
+	// 	addHistory(`${PC.name} ${chosenFood.eventStartText} for ${chosenFood.hungerBuffValue} points. Yum!`)
+	// })
 }
 
 module.exports = controlBuilder
