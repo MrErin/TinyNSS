@@ -1,5 +1,5 @@
 const dbLoad = () => {
-	const gameData = localStorage.getItem('GameDatabase')
+	const gameData = sessionStorage.getItem('GameDatabase')
 	return JSON.parse(gameData)
 }
 

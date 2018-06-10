@@ -7,11 +7,11 @@ const resetPlayer = () => {
 
 	PC.isNew = true
 	PC.workPoints = 0
-	PC.confidence = 0
-	PC.energy = 0
+	PC.confidence = 6
+	PC.energy = 100
 	PC.hunger = 100
-	PC.social = 0
-	PC.fun = 0
+	PC.social = 100
+	PC.fun = 100
 
 	dbSave(db)
 

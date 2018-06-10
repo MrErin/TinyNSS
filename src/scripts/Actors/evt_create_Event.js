@@ -29,7 +29,7 @@ const create_Event = (
 				value: eventStartText,
 				enumerable: true,
 			},
-			energyBuffValue: {
+			energyValue: {
 				value: energyBuffValue,
 				enumerable: true,
 			},
@@ -61,14 +61,21 @@ const create_Event = (
 				value: debuffText,
 				enumerable: true
 			},
-			debuffValues: {
-				enumerable: true,
-				value: {
-					debuffHunger: debuffHunger,
-					debuffSocial: debuffSocial,
-					debuffFun: debuffFun,
-					debuffConfidence: debuffConfidence
-				}
+			hungerDebuffValue: {
+				value: debuffHunger,
+				enumerable: true
+			},
+			socialDebuffValue: {
+				value: debuffSocial,
+				enumerable: true
+			},
+			funDebuffValue: {
+				value: debuffFun,
+				enumerable: true
+			},
+			confidenceDebuffValue: {
+				value: debuffConfidence,
+				enumerable: true
 			}
 		}
 	)

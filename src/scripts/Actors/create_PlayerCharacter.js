@@ -24,12 +24,12 @@ const create_PlayerCharacter = characterName => {
 				enumerable: true,
 			},
 			confidence: {
-				value: 0,
+				value: 6,
 				writable: true,
 				enumerable: true,
 			},
 			energy: {
-				value: 0,
+				value: 100,
 				writable: true,
 				enumerable: true,
 			},
@@ -39,12 +39,12 @@ const create_PlayerCharacter = characterName => {
 				enumerable: true,
 			},
 			social: {
-				value: 0,
+				value: 100,
 				writable: true,
 				enumerable: true,
 			},
 			fun: {
-				value: 0,
+				value: 100,
 				writable: true,
 				enumerable: true,
 			},

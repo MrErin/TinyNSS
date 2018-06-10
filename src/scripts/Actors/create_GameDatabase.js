@@ -9,12 +9,12 @@ const gameDatabase = Object.create(
 		save: {
 			value: function() {
 				const gameData = JSON.stringify(this.entities)
-				localStorage.setItem('GameDatabase', gameData)
+				sessionStorage.setItem('GameDatabase', gameData)
 			},
 		},
 		load: {
 			value: function() {
-				const gameData = localStorage.getItem('GameDatabase')
+				const gameData = sessionStorage.getItem('GameDatabase')
 				return JSON.parse(gameData)
 			}
 		},
