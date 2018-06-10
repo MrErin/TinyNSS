@@ -1,5 +1,6 @@
-const gameDatabase = require('./gameDatabase')
+const gameDatabase = require('./create_GameDatabase')
 const create_EventsTables = require('./create_EventsTables')
+
 
 const create_NewGame = gameName => {
 	const game = Object.create(
@@ -34,8 +35,9 @@ const create_NewGame = gameName => {
 	)
 
 	// create key in game database
-	let entityUID = 'Game'
+	const entityUID = 'Game'
 	gameDatabase.entities[entityUID] = game
+	gameDatabase.entities.Events = []
 	create_EventsTables()
 	gameDatabase.save()
 	return entityUID

@@ -1,6 +1,7 @@
-const gameDatabase = require('./gameDatabase')
+const gameDatabase = require('./create_GameDatabase')
+const initializeEvents = require('./evt_initializeEvents')
 
-const create_EventsTables = () => {
+const create_Events = () => {
 	const table = Object.create(
 		{},
 		{
@@ -21,10 +22,11 @@ const create_EventsTables = () => {
 			}
 		}
 	)
-	let entityUID = 'Events'
+	const entityUID = 'Events'
 	gameDatabase.entities[entityUID] = table
+	initializeEvents()
 	gameDatabase.save()
 	return entityUID
 }
 
-module.exports = create_EventsTables
+module.exports = create_Events

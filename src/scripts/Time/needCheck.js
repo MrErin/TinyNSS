@@ -1,9 +1,9 @@
-const gameDatabase = require('../Actors/gameDatabase')
+const dbLoad = require('../Helpers/dbLoader')
 const addHistory = require('../DOM/addHistory')
 
 const needCheck = need => {
-	gameDatabase.load()
-	const PC = gameDatabase.entities.Player
+	const db = dbLoad()
+	const PC = db.Player
 	if (PC[need] <= 0) {
 		addHistory('Hunger expired. You\'re dead.')
 		return false

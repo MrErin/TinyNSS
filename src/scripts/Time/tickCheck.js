@@ -3,7 +3,7 @@ const $ = require('jquery')
 
 const tickCalc = () => {
 	// time per tick, in minutes
-	const timePerTick = 0.01
+	const timePerTick = 1
 
 	let timeBegin = 0
 	let ticker

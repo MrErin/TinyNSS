@@ -1,5 +1,5 @@
 const getRandomNumber = (min, max) => {
-	return Math.random() * (max - min) + min
+	return parseInt(Math.random() * (max - min) + min)
 }
 
 module.exports = getRandomNumber

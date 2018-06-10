@@ -1,18 +1,21 @@
-const gameDatabase = require('../Actors/gameDatabase')
+const dbLoad = require('../Helpers/dbLoader')
 const needCheck = require('./needCheck')
-const tickCheck = require('./tickCheck')
 const addHistory = require('../DOM/addHistory')
 const updateBar = require('../DOM/updateBar')
+const dbSave = require('../Helpers/dbSaver')
 
 let tickCounter = 1
 
 const tick = () => {
-	let PC = gameDatabase.entities.Player
-	const hungerDecay = gameDatabase.entities.Game.hungerDecayRate
+	const db = dbLoad()
+	let PC = db.Player
+	const hungerDecay = db.Game.hungerDecayRate
 
 	if (needCheck('hunger')) {
 		PC.hunger += hungerDecay
-		updateBar('hunger', hungerDecay)
+		updateBar('hunger')
+		PC.isNew = false
+		dbSave(db)
 
 	} else {
 		clearInterval(ticker)

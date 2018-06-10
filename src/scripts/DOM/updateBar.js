@@ -1,10 +1,13 @@
-const updateBar = (barId, updateAmount) => {
+const dbLoad = require('../Helpers/dbLoader')
+
+const updateBar = (barId) => {
 	const bar = document.getElementById(`${barId}Bar`)
 	const label = document.getElementById(`${barId}Label`)
 	const upper = barId.replace(/^\w/, c => c.toUpperCase())
+	const db = dbLoad()
 
 	if (barId === 'confidence') {
-		bar.value += updateAmount
+		bar.value = db.Player.confidence
 
 		switch(bar.value) {
 		//0 to 4 is timid
@@ -35,7 +38,7 @@ const updateBar = (barId, updateAmount) => {
 			break
 		}
 	} else {
-		bar.value += updateAmount
+		bar.value = db.Player[barId]
 		label.innerText = `${upper}: Current Value: ${bar.value}`
 	}
 }

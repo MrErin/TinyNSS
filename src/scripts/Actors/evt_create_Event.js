@@ -1,4 +1,5 @@
-const gameDatabase = require('./gameDatabase')
+const gameDatabase = require('./create_GameDatabase')
+
 
 const create_Event = (
 	eventType,
@@ -72,16 +73,16 @@ const create_Event = (
 		}
 	)
 
-
+	const db = gameDatabase.entities
 	switch (eventType) {
 	case 'food':
-		gameDatabase.entities.Events.food.push(event)
+		db.Events.food.push(event)
 		break
 	case 'party':
-		gameDatabase.entities.Events.parties.push(event)
+		db.Events.parties.push(event)
 		break
 	case 'meetup':
-		gameDatabase.entities.Events.meetups.push(event)
+		db.Events.meetups.push(event)
 		break
 	default:
 		console.log(`Event ${name} not properly created.`)
