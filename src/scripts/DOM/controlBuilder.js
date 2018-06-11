@@ -5,39 +5,34 @@ const buttonFactory = require('./buttonFactory')
 // const addHistory = require('../DOM/addHistory')
 const dbLoad = require('../Helpers/dbLoader')
 // const dbSave = require('../Helpers/dbSaver')
-const attachEventEventHandler = require('./eventEventHandlers')
+const attachEventEventHandler = require('../Events/attachEventEventHandler')
+const determineButtonElements = require('../Events/determineButtonElements')
 
 
 const controlBuilder = () => {
-	const db = dbLoad()
-	const min = 0
-	const maxFood = db.Events.food.length
-	// const foodNumber = getRandomNumber(min, maxFood)
-	const chosenFood = getRandomNumber(min, maxFood)
-	// const maxParties = db1.Events.parties.length
-	// const maxMeetups = db1.Events.meetups.length
+	// const db = dbLoad()
+	// const maxFood = db.Events.food.length
+	// const chosenFood = getRandomNumber(0, maxFood)
+	// const maxParties = db.Events.parties.length
+	// const chosenParty = getRandomNumber(0, maxParties)
+	// // const maxMeetups = db.Events.meetups.length
+
+	// //create one food button.
+	// //args: content, classes, id, parent
+	// buttonFactory('Eat', 'button', 'eatFood', 'controls')
+	// //args: button id, event array, event index
+	// attachEventEventHandler('eatFood', 'food', chosenFood)
+
+	// //create 2 parties
+	// const party1 = buttonFactory('')
 
 
-	//content, classes, id, parent
-	buttonFactory('Eat', 'button', 'eatFood', 'controls')
-	attachEventEventHandler('eatFood', 'food', chosenFood)
+	// //create 3 meetups
+//need to change the min here back to zero after testing is complete.
+	determineButtonElements('parties', 2, 3)
+	// determineButtonElements('meetups', 2, 3)
 
-	// $('#eatFood').click(() => {
-	// 	//get a random food
 
-	// 	//update the PC object for that food
-	// 	const db2 = dbLoad()
-	// 	const PC = db2.Player
-	// 	PC.isNew = false
-	// 	PC.hunger += chosenFood.hungerBuffValue
-	// 	dbSave(db2)
-
-	// 	//update the bar for that food
-	// 	updateBar('hunger')
-
-	// 	//create message for that food
-	// 	addHistory(`${PC.name} ${chosenFood.eventStartText} for ${chosenFood.hungerBuffValue} points. Yum!`)
-	// })
 }
 
 module.exports = controlBuilder

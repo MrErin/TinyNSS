@@ -1,22 +1,22 @@
 const $ = require('jquery')
-const updateAllBars = require('./updateAllBars')
-const addHistory = require('./addHistory')
+const updateAllBars = require('../DOM/updateAllBars')
+const addHistory = require('../DOM/addHistory')
 const dbLoad = require('../Helpers/dbLoader')
 const dbSave = require('../Helpers/dbSaver')
 const getRandomNumber = require('../Helpers/getRandomNumber')
 
 
-const isBuff = () => {
+const isBuff = (eventArray) => {
 	if (eventArray === 'food') {
 		return true
 	} else {
-		return ((getRandomNumber(1,101) > 25) ? true : false)
+		return ((getRandomNumber(1, 5) > 1) ? true : false)
 	}
 }
 
 const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
-	// debugger
 	$(`#${buttonId}`).click(() => {
+
 		const db = dbLoad()
 		const PC = db.Player
 		const event = db.Events[eventArray][eventIndex]
@@ -24,14 +24,14 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 		if (eventArray === 'food') {
 			addHistory(`${PC.name} ${event.eventStartText} for ${event.hungerBuffValue} points. Yum!`)
 		} else {
-			addHistory(`${PC.Name} ${event.eventStartText}`)
+			addHistory(`${PC.name} ${event.eventStartText}`)
 		}
 
 		PC.isNew = false
 		PC.energy += event.energyValue
 		PC.workPoints += event.workPointValue
 
-		if (isBuff) {
+		if (isBuff(eventArray)) {
 			PC.confidence += event.confidenceBuffValue
 			PC.hunger += event.hungerBuffValue
 			PC.social += event.socialBuffValue
