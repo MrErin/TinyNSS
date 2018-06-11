@@ -12,7 +12,7 @@ const create_NewGame = gameName => {
 				enumerable: true,
 			},
 			confidenceDecayRate: {
-				value: 0,
+				value: -0.001,
 				writable: true,
 				enumerable: true,
 			},
@@ -22,12 +22,12 @@ const create_NewGame = gameName => {
 				enumerable: true,
 			},
 			socialDecayRate: {
-				value: 0,
+				value: -3,
 				writable: true,
 				enumerable: true,
 			},
 			funDecayRate: {
-				value: 0,
+				value: -1,
 				writable: true,
 				enumerable: true,
 			},

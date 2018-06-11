@@ -1,7 +1,7 @@
 const dbLoad = require('../Helpers/dbLoader')
 const deathCheck = require('./deathCheck')
 const addHistory = require('../DOM/addHistory')
-const updateBar = require('../DOM/updateBar')
+const updateAllBars = require('../DOM/updateAllBars')
 const dbSave = require('../Helpers/dbSaver')
 
 let tickCounter = 1
@@ -10,17 +10,23 @@ const tick = () => {
 	const db = dbLoad()
 	let PC = db.Player
 	const hungerDecay = db.Game.hungerDecayRate
+	const socialDecay = db.Game.socialDecayRate
+	const funDecay = db.Game.funDecayRate
+	const confidenceDecay = db.Game.confidenceDecayRate
 
 	if (deathCheck('hunger')) {
-		PC.hunger += hungerDecay
 		PC.isNew = false
+		PC.hunger += hungerDecay
+		PC.social += socialDecay
+		PC.fun += funDecay
+		PC.confidence += confidenceDecay
 		dbSave(db)
-		updateBar('hunger')
+		updateAllBars()
 
 	} else {
 		clearInterval(ticker)
 	}
-	addHistory(`Every tick, the PC should lose ${hungerDecay} from hunger. There have been ${tickCounter} ticks. Current PC hunger is ${PC.hunger} out of 100.`)
+	addHistory('tick')
 	tickCounter++
 }
 
