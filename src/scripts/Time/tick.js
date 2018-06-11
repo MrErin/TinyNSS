@@ -1,23 +1,32 @@
-const gameDatabase = require('../Actors/gameDatabase')
-const needCheck = require('./needCheck')
-const tickCheck = require('./tickCheck')
+const dbLoad = require('../Helpers/dbLoader')
+const deathCheck = require('./deathCheck')
 const addHistory = require('../DOM/addHistory')
-const updateBar = require('../DOM/updateBar')
+const updateAllBars = require('../DOM/updateAllBars')
+const dbSave = require('../Helpers/dbSaver')
 
 let tickCounter = 1
 
 const tick = () => {
-	let PC = gameDatabase.entities.Player
-	const hungerDecay = gameDatabase.entities.Game.hungerDecayRate
-	// cashew says possibly need to delete player and recreate somewhere in here
-	if (needCheck('hunger')) {
+	const db = dbLoad()
+	let PC = db.Player
+	const hungerDecay = db.Game.hungerDecayRate
+	const socialDecay = db.Game.socialDecayRate
+	const funDecay = db.Game.funDecayRate
+	const confidenceDecay = db.Game.confidenceDecayRate
+
+	if (deathCheck('hunger')) {
+		PC.isNew = false
 		PC.hunger += hungerDecay
-		updateBar('hunger', hungerDecay)
+		PC.social += socialDecay
+		PC.fun += funDecay
+		PC.confidence += confidenceDecay
+		dbSave(db)
+		updateAllBars()
 
 	} else {
 		clearInterval(ticker)
 	}
-	addHistory(`Every tick, the PC should lose ${hungerDecay} from hunger. There have been ${tickCounter} ticks. Current PC hunger is ${PC.hunger} out of 100.`)
+	addHistory('tick')
 	tickCounter++
 }
 

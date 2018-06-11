@@ -1,8 +1,9 @@
+const gameDatabase = require('./create_GameDatabase')
 const create_NewGame = require('./create_NewGame')
-const gameDatabase = require('./gameDatabase')
+
 
 const create_PlayerCharacter = characterName => {
-	// create new game difficulty object to set need decay rates
+	// create game difficulty object to set need decay rates
 	create_NewGame(characterName)
 
 	const player = Object.create(
@@ -12,18 +13,23 @@ const create_PlayerCharacter = characterName => {
 				value: characterName,
 				enumerable: true,
 			},
+			isNew: {
+				value: true,
+				enumerable: true,
+				writable: true
+			},
 			workPoints: {
 				value: 0,
 				writable: true,
 				enumerable: true,
 			},
 			confidence: {
-				value: 0,
+				value: 6,
 				writable: true,
 				enumerable: true,
 			},
 			energy: {
-				value: 0,
+				value: 100,
 				writable: true,
 				enumerable: true,
 			},
@@ -33,12 +39,12 @@ const create_PlayerCharacter = characterName => {
 				enumerable: true,
 			},
 			social: {
-				value: 0,
+				value: 100,
 				writable: true,
 				enumerable: true,
 			},
 			fun: {
-				value: 0,
+				value: 100,
 				writable: true,
 				enumerable: true,
 			},
@@ -46,7 +52,7 @@ const create_PlayerCharacter = characterName => {
 	)
 
 	// create key in database
-	let entityUID = 'Player'
+	const entityUID = 'Player'
 	gameDatabase.entities[entityUID] = player
 	gameDatabase.save()
 	return entityUID

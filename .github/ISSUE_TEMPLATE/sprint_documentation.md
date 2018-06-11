@@ -22,6 +22,7 @@ about: Checklist of documentation to add to project before closing sprint
       - [ ] Purpose
       - [ ] Argument list
         - [ ] Purpose
+- [ ] code must be fully commented
 
 **Documentation required by final sprint**
 

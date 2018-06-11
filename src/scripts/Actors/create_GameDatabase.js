@@ -16,9 +16,10 @@ const gameDatabase = Object.create(
 			value: function() {
 				const gameData = sessionStorage.getItem('GameDatabase')
 				return JSON.parse(gameData)
-			},
+			}
 		},
 	}
 )
+
 
 module.exports = gameDatabase

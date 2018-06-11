@@ -1,31 +1,27 @@
-const gameDatabase = require('./gameDatabase')
+const gameDatabase = require('./create_GameDatabase')
 const initializeDatabase = require('./initializeDatabase')
-const initializeEvents = require('./evt_initializeEvents')
+const objectLength = require('../Helpers/objectLength')
+const resetPlayer = require('./resetPlayer')
 
-const Objectlength = object => {
-	let length = 0
-	for (const key in object) {
-		if (object.hasOwnProperty(key)) {
-			++length
-		}
-	}
-	return length
-}
 
 const determineSave = () => {
-	gameDatabase.load()
-	if (gameDatabase.entities === null) {
-		gameDatabase.entities = {}
+	const db = gameDatabase.load()
+
+	if (db === null || db === 'undefined' || typeof db !== 'object') {
 		initializeDatabase()
-		initializeEvents()
+		console.log('created new database A')
 		gameDatabase.save()
-	} else if (Objectlength(gameDatabase.entities) < 2) {
-		gameDatabase.entities = {}
+	} else if (objectLength(db) < 3) {
 		initializeDatabase()
-		initializeEvents()
+		console.log('created new database B')
 		gameDatabase.save()
+	} else if (db.Player.isNew === false) {
+		resetPlayer()
+		console.log('reset player')
+		return gameDatabase
 	} else {
-		gameDatabase.save()
+		console.log('using existing database')
+		return gameDatabase
 	}
 }
 module.exports = determineSave
