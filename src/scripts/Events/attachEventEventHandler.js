@@ -5,7 +5,6 @@ const dbLoad = require('../Helpers/dbLoader')
 const dbSave = require('../Helpers/dbSaver')
 const getRandomNumber = require('../Helpers/getRandomNumber')
 
-
 const isBuff = (eventArray) => {
 	if (eventArray === 'food') {
 		return true
@@ -16,7 +15,7 @@ const isBuff = (eventArray) => {
 
 const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 	$(`#${buttonId}`).click(() => {
-
+		$(`#${buttonId}`).hide()
 		const db = dbLoad()
 		const PC = db.Player
 		const event = db.Events[eventArray][eventIndex]
