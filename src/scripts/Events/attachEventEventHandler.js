@@ -20,7 +20,7 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 		PC.isNew = false
 
 
-		if ((needCheck('energy', minEnergy, 10000)) === true){
+		if ((needCheck('energy', PC.energy, minEnergy, 10000)) === true){
 			addHistory(`${PC.name} ${event.eventStartText}`)
 
 			PC.energy += event.energyValue

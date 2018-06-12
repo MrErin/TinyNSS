@@ -4,9 +4,8 @@ const buildRandomArray = require('../Helpers/buildRandomArray')
 const buildEventButtons = require('./buildEventButtons')
 
 
-//type is either "party" or "meetup". min is the fewest allowable number of buttons. max is the most allowable number of buttons
+//type is either "party" or "meetup". min is the fewest allowable number of buttons. max is the most allowable number of buttons, plus 1
 const determineButtonElements = (type, min, max) => {
-	//i want to get to an array of N randomly determined index numbers for the buttons. ex: [3,0]
 
 	const db = dbLoad()
 	const inputArray = db.Events[type]

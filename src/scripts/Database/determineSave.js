@@ -1,7 +1,8 @@
 const gameDatabase = require('./create_GameDatabase')
+const dbSave = require('../Helpers/dbSaver')
 const initializeDatabase = require('./initializeDatabase')
 const objectLength = require('../Helpers/objectLength')
-const resetPlayer = require('./resetPlayer')
+const fullPlayerReset = require('./fullPlayerReset')
 
 
 const determineSave = () => {
@@ -16,7 +17,8 @@ const determineSave = () => {
 		console.log('created new database B')
 		gameDatabase.save()
 	} else if (db.Player.isNew === false) {
-		resetPlayer()
+		fullPlayerReset(db)
+		dbSave(db)
 		console.log('reset player')
 		return gameDatabase
 	} else {
