@@ -12,25 +12,31 @@ Events sprint
 
 ## Sprint List (newest at top):
 
-* _**Sprint: Events**_
-  * Implement decay of all PC stats
-  * Events affect PC's stats
-  * Energy Check
-  * Create Events data (meetups and parties)
-  * Documentation
+_**Sprint: Days**_
+* Implement game days
+* Game Over: Stats failure
+* Day Over: Energy failure
+* Counting Days (end of game)
+* Documentation
 
-* _**Sprint: HUD**_
-  * Messages
-  * Hunger
-  * Social
-  * Fun
-  * Work Points
-  * Confidence
-  * Documentation
+_**Sprint: Events**_
+* Implement decay of all PC stats
+* Events affect PC's stats
+* Energy Check
+* Create Events data (meetups and parties)
+* Documentation
 
+_**Sprint: HUD**_
+* Messages
+* Hunger
+* Social
+* Fun
+* Work Points
+* Confidence
+* Documentation
 
-* _**Sprint: Core**_
-  * Create Game Object, Player character object, and events array
-    * Have a "new game" button that kicks off a new game (i.e., recreates the objects)
-  * Create Time/Ticks
-  * PC's hunger stat decays according to a rate set in the Game and measured by the ticks
+_**Sprint: Core**_
+* Create Game Object, Player character object, and events array
+  * Have a "new game" button that kicks off a new game (i.e., recreates the objects)
+* Create Time/Ticks
+* PC's hunger stat decays according to a rate set in the Game and measured by the ticks
