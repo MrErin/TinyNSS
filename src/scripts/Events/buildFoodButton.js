@@ -16,8 +16,8 @@ const buildFoodButton = () => {
 		const minEnergy = ((chosenFood.energyValue * -1) - 1)
 		PC.isNew = false
 
-		if((needCheck('energy', minEnergy, 10000)) === true){
-			if((needCheck('hunger', 0, 90)) === true) {
+		if((needCheck('energy', PC.energy,  minEnergy, 10000)) === true){
+			if((needCheck('hunger', PC.hunger, 0, 90)) === true) {
 				addHistory(`${PC.name} ${chosenFood.eventStartText} for ${chosenFood.hungerBuffValue} points. Yum!`)
 
 				PC.energy += chosenFood.energyValue

@@ -14,7 +14,7 @@ const tick = () => {
 	const funDecay = db.Game.funDecayRate
 	const confidenceDecay = db.Game.confidenceDecayRate
 
-	if (deathCheck('hunger')) {
+	if (deathCheck('hunger', PC.hunger)) {
 		PC.isNew = false
 		PC.hunger += hungerDecay
 		PC.social += socialDecay

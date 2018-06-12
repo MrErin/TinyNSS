@@ -22,7 +22,7 @@ _**Features**_
 * Recheck cards from previous sprints to make sure nothing broke or needs adjusting
 * Documentation
 
-## Events Sprint:
+## Sprint: Events:
 
 _**Features**_
 

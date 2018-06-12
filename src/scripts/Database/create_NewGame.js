@@ -1,5 +1,6 @@
 const gameDatabase = require('./create_GameDatabase')
 const create_EventsTables = require('./create_EventsTables')
+const initializeDays = require('./dy_initialize_Days')
 
 
 const create_NewGame = gameName => {
@@ -31,6 +32,11 @@ const create_NewGame = gameName => {
 				writable: true,
 				enumerable: true,
 			},
+			currentDay: {
+				value: 0,
+				writable: true,
+				enumerable: true
+			}
 		}
 	)
 
@@ -39,6 +45,8 @@ const create_NewGame = gameName => {
 	gameDatabase.entities[entityUID] = game
 	gameDatabase.entities.Events = []
 	create_EventsTables()
+	gameDatabase.entities.Days = []
+	initializeDays()
 	gameDatabase.save()
 	return entityUID
 }
