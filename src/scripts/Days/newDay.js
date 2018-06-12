@@ -6,6 +6,8 @@ const fullPlayerReset = require('../Database/fullPlayerReset')
 const buildRandomizedButtons = require('../DOM/buildRandomizedButtons')
 const nukeControlSection = require('../DOM/nukeControlSection')
 const updateAllBars = require('../DOM/updateAllBars')
+const tickCheck = require('../Time/tickCheck')
+const dayCheck = require('../Days/dayCheck')
 
 const newDay = () => {
 	const db = dbLoad()
@@ -14,26 +16,31 @@ const newDay = () => {
 
 	//stuff that happens to close out the previous day
 	addHistory(`End of Day ${Game.currentDay}. Great job!`)
-	Game.currentDay++
 
-	//reset player. If it's day one, user gets a full reset
+	if (dayCheck(db) === true) {
+		Game.currentDay++
 
-	if (Game.currentDay === 1) {
-		fullPlayerReset(db)
-		Game.currentDay = 1
-		Player.isNew = false
+		//reset player. If it's day one, user gets a full reset
+		if (Game.currentDay === 1) {
+			fullPlayerReset(db)
+			Game.currentDay = 1
+			Player.isNew = false
+		} else {
+			dayPlayerReset(db)
+		}
+		dbSave(db)
+		updateAllBars()
+
+		//new day message
+		const todayMessage = db.Days[Game.currentDay].dayStartText
+		addHistory(`It's a brand new day! ${todayMessage}`)
+		nukeControlSection('partiesControls')
+		nukeControlSection('meetupsControls')
+		buildRandomizedButtons()
+		tickCheck()
 	} else {
-		dayPlayerReset(db)
+		addHistory('Game Over! Thanks for Playing!')
 	}
-	dbSave(db)
-	updateAllBars()
-
-	//new day message
-	const todayMessage = db.Days[Game.currentDay].dayStartText
-	addHistory(`It's a brand new day! ${todayMessage}`)
-	nukeControlSection('partiesControls')
-	nukeControlSection('meetupsControls')
-	buildRandomizedButtons()
 
 
 }
