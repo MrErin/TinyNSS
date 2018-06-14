@@ -9,7 +9,8 @@ const updateBar = (barId) => {
 	if (barId === 'confidence') {
 		bar.value = db.Player.confidence
 
-		switch(bar.value) {
+		//!note: if making changes to these calculations, also need to change the similar switch statement in codeBlock/buildStartCodeBlockButton
+		switch(Math.round(bar.value)) {
 		//0 to 4 is timid
 		case 0:
 		case 1:

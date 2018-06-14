@@ -32,7 +32,7 @@ _**Features**_
 * Create Events data (meetups and parties)
 * Documentation
 
-## Sprint 3:
+## Sprint: Days
 
 _**Features**_
 
