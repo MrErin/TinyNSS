@@ -1,12 +1,16 @@
 const gameDatabase = require('./create_GameDatabase')
 
 let idGen = 0
-const create_CodeBlock = (blockTitle, dayNumber, correctBlock, timidBlock, delusionalBlock) => {
+const create_CodeBlock = (blockLanguage, blockTitle, dayNumber, correctBlock, timidBlock, delusionalBlock, correctCode) => {
 	const codeBlock = Object.create(
 		{},
 		{
 			codeId: {
 				value: idGen,
+				enumerable: true
+			},
+			blockLanguage: {
+				value: blockLanguage,
 				enumerable: true
 			},
 			blockTitle: {
@@ -27,6 +31,10 @@ const create_CodeBlock = (blockTitle, dayNumber, correctBlock, timidBlock, delus
 			},
 			delusionalBlock: {
 				value: delusionalBlock,
+				enumerable: true
+			},
+			correctCode: {
+				value: correctCode,
 				enumerable: true
 			}
 		}

@@ -28,6 +28,7 @@ const buildStartCodeBlockButton = () => {
 		let complicationMessage = ''
 		const minEnergy = ((Game.energyPerCodeBlock * -1) - 1)
 		PC.isNew = false
+		const correctCode = thisBlock.correctCode
 
 		if(thisBlock.dayNumber === Game.currentDay){
 			dayBanner = 'today'
@@ -73,7 +74,7 @@ const buildStartCodeBlockButton = () => {
 
 		if (((needCheck('energy', PC.energy, minEnergy, 10000)) === true) && ((wellnessCheck(PC.hunger, PC.social, PC.fun)) === true)) {
 			clearInterval(ticker)
-			displayCodeBlock(codeBlockVersion, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage)
+			displayCodeBlock(codeBlockVersion, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode)
 			PC.energy += Game.energyPerCodeBlock
 		}
 
