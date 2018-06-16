@@ -4,6 +4,7 @@ const inputCheck = (correctCode) => {
 	const playerInputText = document.getElementById('playerInput').value
 	let inputCharacterCodes = []
 	const playerInputLength = playerInputText.length
+	console.log(correctCode)
 
 	for (let i = 0; i < playerInputLength; i++) {
 		inputCharacterCodes.push(playerInputText.charCodeAt(i))
