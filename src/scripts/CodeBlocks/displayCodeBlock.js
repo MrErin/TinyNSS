@@ -1,17 +1,17 @@
 const $ = require('jquery')
-const tickCheck = require('../Time/tickCheck')
 const submitCodeBlock = require('./submitCodeBlock')
 const inputCheck = require('./inputCheck')
+const startTime = require('../Time/startTime')
 
-const displayCodeBlock = (codeText, blockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode) => {
+const displayCodeBlock = (codeText, blockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language) => {
 	$('#modalCanvas').addClass('is-active')
 	$('#codeBlockContent').text(codeText)
 	$('#complicationBanner').text(complicationMessage).addClass(`${complicationBanner}Flag`)
 	$('#dayBanner').text(dayMessage).addClass(`${dayBanner}CodeBlock`)
-	$('#codeBlockTitle').text(blockTitle)
+	$('#codeBlockTitle').text(`${language}: ${blockTitle}`)
 	$('#closeModal').click(() => {
 		$('#modalCanvas').removeClass('is-active')
-		tickCheck()
+		startTime()
 	})
 	$('#playerInput').keyup(function(){
 		inputCheck(correctCode)

@@ -10,6 +10,8 @@ const wellnessCheck = require('./wellnessCheck')
 const displayCodeBlock = require('./displayCodeBlock')
 const addHistory = require('../DOM/addHistory')
 const updateAllBars = require('../DOM/updateAllBars')
+const deathCheck = require('../Time/deathCheck')
+const pauseTime = require('../Time/pauseTime')
 
 const buildStartCodeBlockButton = () => {
 	nukeControlSection('codeBlockControls')
@@ -29,6 +31,7 @@ const buildStartCodeBlockButton = () => {
 		const minEnergy = ((Game.energyPerCodeBlock * -1) - 1)
 		PC.isNew = false
 		const correctCode = thisBlock.correctCode
+		const language = thisBlock.blockLanguage
 
 		if(thisBlock.dayNumber === Game.currentDay){
 			dayBanner = 'today'
@@ -72,10 +75,12 @@ const buildStartCodeBlockButton = () => {
 			break
 		}
 
-		if (((needCheck('energy', PC.energy, minEnergy, 10000)) === true) && ((wellnessCheck(PC.hunger, PC.social, PC.fun)) === true)) {
-			clearInterval(ticker)
-			displayCodeBlock(codeBlockVersion, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode)
-			PC.energy += Game.energyPerCodeBlock
+		if (deathCheck('hunger', PC.hunger, 0)){
+			if (((needCheck('energy', PC.energy, minEnergy, 10000)) === true) && ((wellnessCheck(PC.hunger, PC.social, PC.fun)) === true)) {
+				pauseTime(ticker)
+				displayCodeBlock(codeBlockVersion, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language)
+				PC.energy += Game.energyPerCodeBlock
+			}
 		}
 
 		cblSave(cbl)

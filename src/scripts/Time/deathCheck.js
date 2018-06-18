@@ -1,16 +1,20 @@
 const addHistory = require('../DOM/addHistory')
+const pcIsDead = require('./pcIsDead')
+const pcNeedsSleep = require('./pcNeedsSleep')
+const pauseTime = require('./pauseTime')
 
 const deathCheck = (need, currentValue, deadValue) => {
 	if (currentValue <= deadValue) {
 		switch (need) {
 		case 'hunger':
-			addHistory('Hunger expired. You\'re dead.')
+			pcIsDead()
 			return false
 		case 'energy':
-			addHistory('You\'re too tired. End the day and start fresh tomorrow.')
+			pcNeedsSleep()
 			return false
 		default:
-			addHistory('something went wrong. Check the /Time/deathCheck.js script.')
+			pauseTime(ticker)
+			console.log('something went wrong. Check the /Time/deathCheck.js script.')
 		}
 	} else {
 		return true

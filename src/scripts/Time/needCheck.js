@@ -1,5 +1,7 @@
 const dbLoad = require('../Helpers/dbLoader')
 const addHistory = require('../DOM/addHistory')
+const pauseTime = require('./pauseTime')
+const pcNeedsSleep = require('./pcNeedsSleep')
 
 const needCheck = (need, value, min, max) => {
 
@@ -9,7 +11,8 @@ const needCheck = (need, value, min, max) => {
 		    addHistory('There\'s no way I can even try to do that! I\'ll fail! (Confidence too low.)')
 		    return false
 		case 'energy':
-		    addHistory('No...I can\'t even right now. (Energy too low.)')
+			addHistory('No...I can\'t even right now. (Energy too low.)')
+			pcNeedsSleep()
 		    return false
 		case 'hunger':
 			addHistory('Dead people don\'t eat. (Hunger too low.)')
@@ -21,7 +24,8 @@ const needCheck = (need, value, min, max) => {
 			addHistory('I would rather be doing literally anything else. (Fun too low.)')
 			return false
 		default:
-			addHistory(`Something went wrong. You passed me the ${need} need, which has a value of ${value}.`)
+			pauseTime(ticker)
+			console.log(`Something went wrong. You passed me the ${need} need, which has a value of ${value}.`)
 			break
 
 		}
@@ -40,10 +44,11 @@ const needCheck = (need, value, min, max) => {
 			addHistory('Gah won\'t you people leave me alone?! I can\'t even think right now! (Social too high.)')
 			return false
 		case 'fun':
-			addHistory('Funfunfunfunfunfunfunfunfun. (Fun too high.)')
+			addHistory('Funfunfun...Funfunfunfunfunfun. (Fun too high.)')
 			return false
 		default:
-			addHistory(`Something went wrong. You passed me the ${need} need, which has a value of ${value}.`)
+			pauseTime(ticker)
+			console.log(`Something went wrong. You passed me the ${need} need, which has a value of ${value}.`)
 			break
 		}
 	} else {

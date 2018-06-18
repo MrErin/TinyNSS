@@ -1,8 +1,8 @@
 const dbLoad = require('../Helpers/dbLoader')
 const dbSave = require('../Helpers/dbSaver')
 const updateAllBars = require('../DOM/updateAllBars')
-const tickCheck = require('../Time/tickCheck')
 const $ = require('jquery')
+const startTime = require('../Time/startTime')
 
 const submitCodeBlock = (complication) => {
 	const db = dbLoad()
@@ -21,7 +21,7 @@ const submitCodeBlock = (complication) => {
 	dbSave(db)
 	updateAllBars()
 	$('#modalCanvas').removeClass('is-active')
-	tickCheck()
+	startTime()
 }
 
 module.exports = submitCodeBlock
