@@ -13,14 +13,20 @@ const pauseTime = require('../Time/pauseTime')
 const startCodeBlockEventHandler = () => {
 	const db = dbLoad()
 	const cbl = cblLoad()
-	const thisBlock = cbl.pop()
+	const blockId = cbl.pop()
+	let thisBlock = ''
+
+	db.CodeBlocks.forEach(block => {
+		if (blockId === block.codeId){
+			thisBlock = block
+		}
+	})
 	// console.log('This block is', thisBlock)
 	const Game = db.Game
 	const PC = db.Player
 	let dayMessage = ''
 	let dayBanner = ''
 	const codeBlockTitle = thisBlock.blockTitle
-	let codeBlockVersion = ''
 	let complicationBanner = ''
 	let complicationMessage = ''
 	const minEnergy = ((Game.energyPerCodeBlock * -1) - 1)
@@ -50,7 +56,6 @@ const startCodeBlockEventHandler = () => {
 	case 2:
 	case 3:
 	case 4:
-		codeBlockVersion = thisBlock.timidBlock
 		complicationMessage = 'You\'re feeling timid right now. You might want to ask for help.'
 		complicationBanner = 'timid'
 		break
@@ -58,13 +63,11 @@ const startCodeBlockEventHandler = () => {
 	case 6:
 	case 7:
 	case 8:
-		codeBlockVersion = thisBlock.correctBlock
 		complicationMessage = ''
 		complicationBanner = 'correct'
 		break
 	case 9:
 	case 10:
-		codeBlockVersion = thisBlock.delusionalBlock
 		complicationMessage = 'You\'re feeling delusional right now. You might want to ask for help.'
 		complicationBanner = 'delusional'
 		break
@@ -76,7 +79,7 @@ const startCodeBlockEventHandler = () => {
 	if (deathCheck('hunger', PC.hunger, 0)){
 		if (((needCheck('energy', PC.energy, minEnergy, 10000)) === true) && ((wellnessCheck(PC.hunger, PC.social, PC.fun)) === true)) {
 			pauseTime(ticker)
-			displayCodeBlock(codeBlockVersion, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language)
+			displayCodeBlock(thisBlock.codeId, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language)
 			PC.energy += Game.energyPerCodeBlock
 			cblSave(cbl)
 			dbSave(db)

@@ -2,6 +2,7 @@ const gameDatabase = require('./create_GameDatabase')
 const create_EventsTables = require('./create_EventsTables')
 const initializeDays = require('./dy_initialize_Days')
 const initializeCodeBlocks = require('./cb_initializeCodeBlocks')
+const initializeInstructors = require('./inst_initializeInstructors')
 
 
 const create_NewGame = gameName => {
@@ -48,6 +49,8 @@ const create_NewGame = gameName => {
 	create_EventsTables()
 	gameDatabase.entities.Days = []
 	initializeDays()
+	gameDatabase.entities.Instructors = []
+	initializeInstructors()
 	gameDatabase.entities.CodeBlocks = []
 	initializeCodeBlocks()
 	gameDatabase.save()

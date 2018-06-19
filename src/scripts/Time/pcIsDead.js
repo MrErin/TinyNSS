@@ -10,6 +10,8 @@ const pcIsDead = () => {
 	$('#newDay').prop('disabled', true)
 	$('#eatFood').prop('disabled', true)
 	$('#startCodeBlock').prop('disabled', true)
+	$('#startTime').prop('disabled', true)
+	$('#pauseTime').prop('disabled', true)
 	nukeControlSection('partiesControls')
 	nukeControlSection('meetupsControls')
 

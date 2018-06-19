@@ -6,7 +6,7 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 ## Currently Working On:
 
-Code block minigame
+Enhancements and bug squishes
 
 ## Current Problem:
 
@@ -17,6 +17,7 @@ Code block minigame
   * codeBlocks/buildStartCodeBlockButton
   * DOM/updateBar
 * button factory and component factory can be combined
+* in the code block minigame, I've used a function three different times to pass around a code block. I should modularize it but don't want to stop and rewrite things right now.
 
 ## Sprint List (newest at top):
 
