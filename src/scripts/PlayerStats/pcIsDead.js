@@ -1,5 +1,5 @@
 const $ = require('jquery')
-const pauseTime = require('./pauseTime')
+const pauseTime = require('../Time/pauseTime')
 const nukeControlSection = require('../DOM/nukeControlSection')
 const addHistory = require('../DOM/addHistory')
 

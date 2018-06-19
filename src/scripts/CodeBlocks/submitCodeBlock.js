@@ -3,6 +3,8 @@ const dbSave = require('../Helpers/dbSaver')
 const updateAllBars = require('../DOM/updateAllBars')
 const $ = require('jquery')
 const startTime = require('../Time/startTime')
+const pauseTime = require('../Time/pauseTime')
+const addHistory = require('../DOM/addHistory')
 
 const submitCodeBlock = (complication) => {
 	const db = dbLoad()
@@ -20,6 +22,7 @@ const submitCodeBlock = (complication) => {
 	} else {
 		console.log(`What the frak? You passed ${complication} as the code complication from the CodeBlocks/submitCodeBlock module.`)
 	}
+	addHistory(`${PC.name} finished a code block. Great work!`)
 
 	dbSave(db)
 	updateAllBars()
@@ -27,6 +30,7 @@ const submitCodeBlock = (complication) => {
 	$('#modalCanvas').removeClass('is-active')
 	const buildStartCodeBlockButton = require('./buildStartCodeBlockButton')
 	buildStartCodeBlockButton()
+	pauseTime(ticker)
 	startTime()
 }
 

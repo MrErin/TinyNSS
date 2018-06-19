@@ -5,7 +5,7 @@ const getRandomNumber = require('../Helpers/getRandomNumber')
 const dbSave = require('../Helpers/dbSaver')
 const updateAllBars = require('../DOM/updateAllBars')
 const addHistory = require('../DOM/addHistory')
-const needCheck = require('../Time/needCheck')
+const needCheck = require('../PlayerStats/needCheck')
 
 const buildFoodButton = () => {
 	buttonFactory('Eat', 'button', 'eatFood', 'foodControls')

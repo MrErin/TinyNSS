@@ -1,7 +1,7 @@
 const addHistory = require('../DOM/addHistory')
 const pcIsDead = require('./pcIsDead')
 const pcNeedsSleep = require('./pcNeedsSleep')
-const pauseTime = require('./pauseTime')
+const pauseTime = require('../Time/pauseTime')
 
 const deathCheck = (need, currentValue, deadValue) => {
 	if (currentValue <= deadValue) {

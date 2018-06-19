@@ -4,7 +4,7 @@ const addHistory = require('../DOM/addHistory')
 const dbLoad = require('../Helpers/dbLoader')
 const dbSave = require('../Helpers/dbSaver')
 const getRandomNumber = require('../Helpers/getRandomNumber')
-const needCheck = require('../Time/needCheck')
+const needCheck = require('../PlayerStats/needCheck')
 
 const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 	$(`#${buttonId}`).click(() => {

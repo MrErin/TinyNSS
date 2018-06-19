@@ -1,8 +1,7 @@
 const dbLoad = require('../Helpers/dbLoader')
-const deathCheck = require('./deathCheck')
+const deathCheck = require('../PlayerStats/deathCheck')
 const updateAllBars = require('../DOM/updateAllBars')
 const dbSave = require('../Helpers/dbSaver')
-const addHistory = require('../DOM/addHistory')
 
 let tickCounter = 0
 
@@ -23,9 +22,9 @@ const tick = () => {
 			PC.confidence += confidenceDecay
 			dbSave(db)
 			updateAllBars()
-			addHistory(`tick ${tickCounter}`)
 		}
 	}
+	console.log(`tick ${tickCounter}`)
 	tickCounter++
 }
 

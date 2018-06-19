@@ -4,19 +4,23 @@ const inputCheck = require('./inputCheck')
 const startTime = require('../Time/startTime')
 const askForHelpEventHandler = require('./askForHelpEventHandler')
 const codeBlockTextDisplay = require('./codeBlockTextDisplay')
+const pauseTime = require('../Time/pauseTime')
 
 const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language) => {
 	$('#modalCanvas').addClass('is-active')
 	codeBlockTextDisplay(codeId, complicationBanner)
-	$('#askForHelp').prop('disabled', true)
+	if (complicationBanner === 'correct'){
+		$('#askForHelp').prop('disabled', true)
+	} else {
+		$('#askForHelp').prop('disabled', false)
+	}
 	$('#complicationBanner').text(complicationMessage).addClass(`${complicationBanner}Flag`)
-	$('#askForHelp').prop('disabled', false)
-
 	$('#dayBanner').text(dayMessage).addClass(`${dayBanner}CodeBlock`)
 	$('#codeBlockTitle').text(`${language}: ${blockTitle}`)
 	$('#modalCanvas').on('click', '#closeModal', function(){
 		$('#modalCanvas').removeClass('is-active')
 		$('#playerInput').val('')
+		pauseTime(ticker)
 		startTime()
 	})
 	$('#modalCanvas').off('click', '#askForHelp')

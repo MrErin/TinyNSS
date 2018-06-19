@@ -1,6 +1,6 @@
 const dbLoad = require('../Helpers/dbLoader')
 const addHistory = require('../DOM/addHistory')
-const pauseTime = require('./pauseTime')
+const pauseTime = require('../Time/pauseTime')
 const pcNeedsSleep = require('./pcNeedsSleep')
 
 const needCheck = (need, value, min, max) => {

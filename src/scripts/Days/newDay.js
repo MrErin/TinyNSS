@@ -9,6 +9,7 @@ const updateAllBars = require('../DOM/updateAllBars')
 const dayCheck = require('../Days/dayCheck')
 const create_CodeBlockList = require('../CodeBlocks/create_CodeBlockList')
 const startTime = require('../Time/startTime')
+const pauseTime = require('../Time/pauseTime')
 
 const newDay = () => {
 	const db = dbLoad()
@@ -39,6 +40,7 @@ const newDay = () => {
 		nukeControlSection('partiesControls')
 		nukeControlSection('meetupsControls')
 		buildRandomizedButtons()
+		pauseTime(ticker)
 		startTime()
 	} else {
 		addHistory('Game Over! Thanks for Playing!')
