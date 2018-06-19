@@ -6,11 +6,29 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 ## Currently Working On:
 
-Events sprint
+Enhancements and bug squishes
 
 ## Current Problem:
 
+## Future Refactor Opportunities:
+
+* dbSave/dbLoad: I wrote those and have used them up to this point with the exclusive plan of saving and loading only the game database. Now as I'm developing the code block minigame I have created near-duplicate functions in order to save and load the code block list every day (rather than saving and loading the database itself another time every day.)
+* calculating confidence: there are very similar switch statements in the two files below. Perhaps they can be refactored into one function each one calls
+  * codeBlocks/buildStartCodeBlockButton
+  * DOM/updateBar
+* button factory and component factory can be combined
+* in the code block minigame, I've used a function three different times to pass around a code block. I should modularize it but don't want to stop and rewrite things right now.
+
 ## Sprint List (newest at top):
+
+_**Sprint: Code Blocks**_
+
+* Code blocks
+* Wellness Check
+* Each school day has a particular "mission" that code blocks are contributing towards (like "Today is Group Project Day)
+* Asking for help
+* Recheck cards from previous sprints to make sure nothing broke or needs adjusting
+* Documentation
 
 _**Sprint: Days**_
 * Implement game days

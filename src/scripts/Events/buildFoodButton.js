@@ -9,15 +9,15 @@ const needCheck = require('../Time/needCheck')
 
 const buildFoodButton = () => {
 	buttonFactory('Eat', 'button', 'eatFood', 'foodControls')
-	$('#eatFood').click(() => {
+	$('#foodControls').on('click', '#eatFood', function(){
 		const db = dbLoad()
 		const PC = db.Player
 		const chosenFood = db.Events.food[getRandomNumber(0, (db.Events.food.length))]
 		const minEnergy = ((chosenFood.energyValue * -1) - 1)
 		PC.isNew = false
 
-		if((needCheck('energy', PC.energy,  minEnergy, 10000)) === true){
-			if((needCheck('hunger', PC.hunger, 0, 90)) === true) {
+		if(needCheck('energy', PC.energy,  minEnergy, 10000)){
+			if(needCheck('hunger', PC.hunger, 0, 90)){
 				addHistory(`${PC.name} ${chosenFood.eventStartText} for ${chosenFood.hungerBuffValue} points. Yum!`)
 
 				PC.energy += chosenFood.energyValue
@@ -31,7 +31,6 @@ const buildFoodButton = () => {
 
 		dbSave(db)
 		updateAllBars()
-
 	})
 }
 

@@ -6,8 +6,9 @@ const fullPlayerReset = require('../Database/fullPlayerReset')
 const buildRandomizedButtons = require('../DOM/buildRandomizedButtons')
 const nukeControlSection = require('../DOM/nukeControlSection')
 const updateAllBars = require('../DOM/updateAllBars')
-const tickCheck = require('../Time/tickCheck')
 const dayCheck = require('../Days/dayCheck')
+const create_CodeBlockList = require('../CodeBlocks/create_CodeBlockList')
+const startTime = require('../Time/startTime')
 
 const newDay = () => {
 	const db = dbLoad()
@@ -32,12 +33,13 @@ const newDay = () => {
 		updateAllBars()
 
 		//new day message
+		create_CodeBlockList(Game.currentDay)
 		const todayMessage = db.Days[Game.currentDay].dayStartText
 		addHistory(`It's a brand new day! ${todayMessage}`)
 		nukeControlSection('partiesControls')
 		nukeControlSection('meetupsControls')
 		buildRandomizedButtons()
-		tickCheck()
+		startTime()
 	} else {
 		addHistory('Game Over! Thanks for Playing!')
 	}

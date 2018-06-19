@@ -1,6 +1,8 @@
 const gameDatabase = require('./create_GameDatabase')
 const create_EventsTables = require('./create_EventsTables')
 const initializeDays = require('./dy_initialize_Days')
+const initializeCodeBlocks = require('./cb_initializeCodeBlocks')
+const initializeInstructors = require('./inst_initializeInstructors')
 
 
 const create_NewGame = gameName => {
@@ -13,28 +15,28 @@ const create_NewGame = gameName => {
 				enumerable: true,
 			},
 			confidenceDecayRate: {
-				value: -0.001,
-				writable: true,
+				value: -0.1,
 				enumerable: true,
 			},
 			hungerDecayRate: {
-				value: -10,
-				writable: true,
+				value: -1,
 				enumerable: true,
 			},
 			socialDecayRate: {
 				value: -3,
-				writable: true,
 				enumerable: true,
 			},
 			funDecayRate: {
 				value: -1,
-				writable: true,
 				enumerable: true,
 			},
 			currentDay: {
 				value: 0,
 				writable: true,
+				enumerable: true
+			},
+			energyPerCodeBlock: {
+				value: -20,
 				enumerable: true
 			}
 		}
@@ -47,6 +49,10 @@ const create_NewGame = gameName => {
 	create_EventsTables()
 	gameDatabase.entities.Days = []
 	initializeDays()
+	gameDatabase.entities.Instructors = []
+	initializeInstructors()
+	gameDatabase.entities.CodeBlocks = []
+	initializeCodeBlocks()
 	gameDatabase.save()
 	return entityUID
 }

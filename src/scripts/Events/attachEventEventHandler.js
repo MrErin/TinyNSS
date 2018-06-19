@@ -6,10 +6,6 @@ const dbSave = require('../Helpers/dbSaver')
 const getRandomNumber = require('../Helpers/getRandomNumber')
 const needCheck = require('../Time/needCheck')
 
-const isBuff = (eventArray) => {
-	return ((getRandomNumber(1, 5) > 1) ? true : false)
-}
-
 const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 	$(`#${buttonId}`).click(() => {
 		$(`#${buttonId}`).hide()
@@ -18,15 +14,16 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 		const event = db.Events[eventArray][eventIndex]
 		const minEnergy = ((event.energyValue * -1) - 1)
 		PC.isNew = false
+		let isBuff = getRandomNumber(1,5)
 
 
-		if ((needCheck('energy', PC.energy, minEnergy, 10000)) === true){
+		if (needCheck('energy', PC.energy, minEnergy, 10000)){
 			addHistory(`${PC.name} ${event.eventStartText}`)
 
 			PC.energy += event.energyValue
 			PC.workPoints += event.workPointValue
 
-			if (isBuff(eventArray)) {
+			if (isBuff === 2) {
 				PC.confidence += event.confidenceBuffValue
 				PC.hunger += event.hungerBuffValue
 				PC.social += event.socialBuffValue

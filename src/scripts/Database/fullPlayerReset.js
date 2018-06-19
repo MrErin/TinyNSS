@@ -5,7 +5,7 @@ const fullPlayerReset = (database) => {
 
 	PC.isNew = true
 	PC.workPoints = 0
-	PC.confidence = 6
+	PC.confidence = 3
 	PC.energy = 100
 	PC.hunger = 50
 	PC.social = 50

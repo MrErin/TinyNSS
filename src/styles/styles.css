@@ -39,6 +39,9 @@ canvas {
 .history {
   padding-bottom: 5px; }
 
+.red {
+  background-color: red; }
+
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
