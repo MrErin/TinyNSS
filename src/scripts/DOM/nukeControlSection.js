@@ -1,3 +1,5 @@
+const $ = require('jquery')
+
 const nukeControlSection = (controlId) => {
 	const nukeId = document.getElementById(controlId)
 	while (nukeId.firstChild){

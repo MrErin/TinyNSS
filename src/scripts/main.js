@@ -7,7 +7,7 @@ const startTime = require('./Time/startTime')
 
 
 determineSave()
+startTime()
 controlBuilder()
 updateAllBars()
 dayZero()
-startTime()

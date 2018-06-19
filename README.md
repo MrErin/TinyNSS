@@ -16,7 +16,7 @@ Code block minigame
 * calculating confidence: there are very similar switch statements in the two files below. Perhaps they can be refactored into one function each one calls
   * codeBlocks/buildStartCodeBlockButton
   * DOM/updateBar
-* death/need checks: currently, I'm sending in the variables and the check function is adding to the history if necessary, but it doesn't do anything else. Does the death function need to have a terminal end rather than passing back true or false? Seems like it would be better if I had a single "you're dead" function and any time a need check fails, it goes straight there rather than handling the logic individually in the other modules.
+* button factory and component factory can be combined
 
 ## Sprint List (newest at top):
 

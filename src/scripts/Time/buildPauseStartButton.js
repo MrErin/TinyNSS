@@ -8,14 +8,13 @@ const buildPauseStartButton = (timeAction) => {
 	if(timeAction === 'start') {
 		buttonFactory('Start Time', 'button', 'startTime', 'timeControls')
 		const startTime = require('./startTime')
-		$('#startTime').click(() => {
+		$('#timeControls').on('click', '#startTime', function(){
 			startTime()
 		})
-
 	} else if (timeAction === 'pause') {
 		buttonFactory('Pause Time', 'button', 'pauseTime', 'timeControls')
 		const pauseTime = require('./pauseTime')
-		$('#pauseTime').click(() => {
+		$('#timeControls').on('click', '#pauseTime', function(){
 			pauseTime(ticker)
 		})
 	} else {

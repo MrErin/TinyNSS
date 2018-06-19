@@ -6,10 +6,9 @@ const dbLoad = require('../Helpers/dbLoader')
 
 const buildNewDayButton = () => {
 	buttonFactory('End This Day', 'button', 'newDay', 'dayControls')
-	$('#newDay').click(() => {
+	$('#dayControls').on('click', '#newDay', function(){
 		newDay()
 	})
-
 }
 
 module.exports = buildNewDayButton

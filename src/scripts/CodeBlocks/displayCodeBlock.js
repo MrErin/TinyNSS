@@ -9,18 +9,19 @@ const displayCodeBlock = (codeText, blockTitle, complicationBanner, complication
 	$('#complicationBanner').text(complicationMessage).addClass(`${complicationBanner}Flag`)
 	$('#dayBanner').text(dayMessage).addClass(`${dayBanner}CodeBlock`)
 	$('#codeBlockTitle').text(`${language}: ${blockTitle}`)
-	$('#closeModal').click(() => {
+	$('#modalCanvas').on('click', '#closeModal', function(){
 		$('#modalCanvas').removeClass('is-active')
+		$('#playerInput').val('')
 		startTime()
 	})
-	$('#playerInput').keyup(function(){
+	$('#modalCanvas').off('keyup', '#playerInput')
+	$('#modalCanvas').on('keyup', '#playerInput', function(){
 		inputCheck(correctCode)
 	})
 	$('#submitCodeBlock').prop('disabled', true)
-	$('#submitCodeBlock').click(function() {
+	$('#submitCodeBlock').on('click', '#submitCodeBlock', function(){
 		submitCodeBlock(complicationBanner)
 	})
-
 }
 
 module.exports = displayCodeBlock

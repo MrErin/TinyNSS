@@ -9,7 +9,7 @@ const needCheck = require('../Time/needCheck')
 
 const buildFoodButton = () => {
 	buttonFactory('Eat', 'button', 'eatFood', 'foodControls')
-	$('#eatFood').click(() => {
+	$('#foodControls').on('click', '#eatFood', function(){
 		const db = dbLoad()
 		const PC = db.Player
 		const chosenFood = db.Events.food[getRandomNumber(0, (db.Events.food.length))]
@@ -31,7 +31,6 @@ const buildFoodButton = () => {
 
 		dbSave(db)
 		updateAllBars()
-
 	})
 }
 
