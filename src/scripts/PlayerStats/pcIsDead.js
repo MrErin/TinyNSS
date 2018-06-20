@@ -16,7 +16,8 @@ const pcIsDead = () => {
 	nukeControlSection('meetupsControls')
 
 	//notify player
-	addHistory('Game Over. Please try again.')
+	addHistory('Game Over', 'Please try again.',
+		'fas fa-ban historyIcon', 0)
 }
 
 module.exports = pcIsDead

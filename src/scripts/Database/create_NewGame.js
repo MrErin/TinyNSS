@@ -19,7 +19,7 @@ const create_NewGame = gameName => {
 				enumerable: true,
 			},
 			hungerDecayRate: {
-				value: -10,
+				value: -1,
 				enumerable: true,
 			},
 			socialDecayRate: {

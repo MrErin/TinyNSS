@@ -21,8 +21,12 @@ const askForHelpEventHandler = (codeId, complication) => {
 			PC.confidence += instructor.thumbsUpValue
 			PC.social += 10
 			$('#complicationBanner').text(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
+			addHistoryDetail(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`, `HistoryContentCodeBlock${codeId}`)
+			addHistoryEffectList(`Confidence: ${instructor.thumbsUpValue}`, `historyEffectsCodeBlock${codeId}`)
+
 		} else {
 			$('#complicationBanner').text(`${instructor.name} helped you out!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
+			addHistoryDetail(`${instructor.name} helped you out!`, `HistoryContentCodeBlock${codeId}`)
 		}
 	}
 	dbSave(db)

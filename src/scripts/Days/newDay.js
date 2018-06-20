@@ -17,7 +17,7 @@ const newDay = () => {
 	const Player = db.Player
 
 	//stuff that happens to close out the previous day
-	addHistory(`End of Day ${Game.currentDay}. Great job!`)
+	addHistory(`End of Day ${Game.currentDay}`, 'Great job!', 'far fa-moon historyIcon', 0)
 
 	if (dayCheck(db) === true) {
 		Game.currentDay++
@@ -36,14 +36,14 @@ const newDay = () => {
 		//new day message
 		create_CodeBlockList(Game.currentDay)
 		const todayMessage = db.Days[Game.currentDay].dayStartText
-		addHistory(`It's a brand new day! ${todayMessage}`)
+		addHistory('It\'s a brand new day!', todayMessage, 'far fa-sun historyIcon', 0)
 		nukeControlSection('partiesControls')
 		nukeControlSection('meetupsControls')
 		buildRandomizedButtons()
 		pauseTime(ticker)
 		startTime()
 	} else {
-		addHistory('Game Over! Thanks for Playing!')
+		console.log('At some point, this was triggered. Add an else history message back to the Days/newDay script')
 	}
 
 

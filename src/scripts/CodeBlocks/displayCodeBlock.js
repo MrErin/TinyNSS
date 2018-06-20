@@ -17,6 +17,7 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 	$('#complicationBanner').text(complicationMessage).addClass(`${complicationBanner}Flag`)
 	$('#dayBanner').text(dayMessage).addClass(`${dayBanner}CodeBlock`)
 	$('#codeBlockTitle').text(`${language}: ${blockTitle}`)
+	$('#modalCanvas').off('click', '#closeModal')
 	$('#modalCanvas').on('click', '#closeModal', function(){
 		$('#modalCanvas').removeClass('is-active')
 		$('#playerInput').val('')
@@ -32,8 +33,9 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 		inputCheck(correctCode)
 	})
 	$('#submitCodeBlock').prop('disabled', true)
+	$('#modalCanvas').off('click', '#submitCodeBlock')
 	$('#modalCanvas').on('click', '#submitCodeBlock', function(){
-		submitCodeBlock(complicationBanner)
+		submitCodeBlock(complicationBanner, codeId)
 	})
 }
 

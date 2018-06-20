@@ -6,6 +6,7 @@ const startCodeBlockEventHandler = require('./startCodeBlockEventHandler')
 const buildStartCodeBlockButton = () => {
 	nukeControlSection('codeBlockControls')
 	buttonFactory('Start Code Block', 'button', 'startCodeBlock', 'codeBlockControls')
+	$('#codeBlockControls').off('click', '#startCodeBlock')
 	$('#startCodeBlock').on({
 		click: function() {
 			startCodeBlockEventHandler()
