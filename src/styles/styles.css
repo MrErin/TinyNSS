@@ -22,14 +22,11 @@ meter::-webkit-meter-even-less-good-value {
   background: #CC4600;
   border-radius: 3px; }
 
-canvas {
-  width: 700px;
+#graphics {
   height: 300px;
   background: #86CC00; }
 
 #History {
-  width: 800px;
-  height: 400px;
   overflow-y: scroll;
   overflow-x: hidden; }
 

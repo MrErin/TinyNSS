@@ -6,7 +6,7 @@ const create_Event = (
 	name,
 	eventStartText,
 	energyBuffValue,
-	workPointValue,
+	coderPointValue,
 	confidenceBuffValue,
 	hungerBuffValue,
 	socialBuffValue,
@@ -33,8 +33,8 @@ const create_Event = (
 				value: energyBuffValue,
 				enumerable: true,
 			},
-			workPointValue: {
-				value: workPointValue,
+			coderPointValue: {
+				value: coderPointValue,
 				enumerable: true,
 			},
 			confidenceBuffValue: {

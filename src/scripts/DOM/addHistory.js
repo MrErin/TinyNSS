@@ -4,7 +4,7 @@ const apnd = require('./apnd')
 
 let historyUniqueKey = 1
 
-const addHistory = (headerTitle, content, icon, idNum) => {
+const addHistory = (cardTitle, startText, icon, idNum) => {
 	const frag = document.createDocumentFragment()
 
 	//creating logic that will allow multiple history messages to attach to the same card in this function. If no ID is passed, use the default ID from the counter variable
@@ -17,24 +17,41 @@ const addHistory = (headerTitle, content, icon, idNum) => {
 	}
 
 
-	const card = componentFactory('section', '', `History${keyId}`, 'history card')
+	//component factory: type, contents, id, classes
+	const card = componentFactory(
+		'section',
+		'',
+		`History${keyId}`,
+		'history card'
+	)
 	apnd(frag, card)
-	const historyHeader = componentFactory('div', '', `HistoryHeader${keyId}`, 'historyHeader level')
+	const historyHeader = componentFactory(
+		'div',
+		'',
+		`HistoryHeader${keyId}`,
+		'historyHeader'
+	)
 	apnd(card, historyHeader)
-	const historyIconDiv = componentFactory('div', '', `HistoryHeaderIcon${keyId}`, 'historyIcon card-header-icon is-one-fifth level-left')
-	apnd(historyHeader, historyIconDiv)
-	const historyIcon = componentFactory('i', '', '', `${icon} is-size-1 level-item`)
-	apnd(historyIconDiv, historyIcon)
-	const historyTitleDiv = componentFactory('div', headerTitle, '', 'historyTitle column is-size-3 card-header-title')
-	apnd(historyHeader, historyTitleDiv)
-	if (content !== '') {
-		const contentDiv = componentFactory('section', '', `HistoryContent${keyId}`, 'historySection card-content')
-		apnd(card, contentDiv)
-		const contentText = componentFactory('p', content, '', 'historyText')
-		apnd(contentDiv, contentText)
-		const effectList = componentFactory('ul', '', `historyEffects${keyId}`, 'historyEffects')
-		apnd(contentDiv, effectList)
-	}
+	const historyIcon = componentFactory(
+		'i',
+		'',
+		'',
+		`${icon} is-size-1`
+	)
+	apnd(historyHeader, historyIcon)
+	const historyTitle = componentFactory(
+		'div',
+		cardTitle,
+		'',
+		'historyTitle card-header-title'
+
+	)
+
+
+
+
+
+
 	$($(frag)).prependTo($('#History'))
 
 	historyUniqueKey++

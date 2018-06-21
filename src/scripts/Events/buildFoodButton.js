@@ -29,10 +29,10 @@ const buildFoodButton = () => {
 
 					addHistoryEffectList(`Energy: ${chosenFood.energyValue}`, `foodDay${db.Game.currentDay}${uniqueKey}`)
 				}
-				if (chosenFood.workPointValue !== 0) {
-					PC.workPoints += chosenFood.workPointValue
+				if (chosenFood.coderPointValue !== 0) {
+					PC.coderPoints += chosenFood.coderPointValue
 
-					addHistoryEffectList(`Work Points: ${chosenFood.workPointValue}`, `foodDay${db.Game.currentDay}${uniqueKey}`)
+					addHistoryEffectList(`Coder Points: ${chosenFood.coderPointValue}`, `foodDay${db.Game.currentDay}${uniqueKey}`)
 				}
 				if (chosenFood.confidenceBuffValue !== 0) {
 					PC.confidence += chosenFood.confidenceBuffValue

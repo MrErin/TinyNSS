@@ -2,7 +2,7 @@
 // name, (this is what shows up on the button)
 // eventStartText,
 // energyValue,
-// workPointValue,
+// coderPointValue,
 // confidenceBuffValue,
 // hungerBuffValue,
 // socialBuffValue,

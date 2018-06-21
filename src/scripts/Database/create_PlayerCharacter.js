@@ -18,7 +18,7 @@ const create_PlayerCharacter = characterName => {
 				enumerable: true,
 				writable: true
 			},
-			workPoints: {
+			coderPoints: {
 				value: 0,
 				writable: true,
 				enumerable: true,

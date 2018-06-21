@@ -8,6 +8,8 @@ const displayCodeBlock = require('./displayCodeBlock')
 const updateAllBars = require('../DOM/updateAllBars')
 const deathCheck = require('../PlayerStats/deathCheck')
 const pauseTime = require('../Time/pauseTime')
+const addHistory = require('../DOM/addHistory')
+const $ = require('jquery')
 
 
 const startCodeBlockEventHandler = () => {
@@ -21,7 +23,6 @@ const startCodeBlockEventHandler = () => {
 			thisBlock = block
 		}
 	})
-	// console.log('This block is', thisBlock)
 	const Game = db.Game
 	const PC = db.Player
 	let dayMessage = ''
@@ -33,9 +34,7 @@ const startCodeBlockEventHandler = () => {
 	PC.isNew = false
 	let correctCode = ''
 	correctCode = thisBlock.correctCode
-	// console.log('correct code', correctCode)
 	const language = thisBlock.blockLanguage
-
 
 	if(thisBlock.dayNumber === Game.currentDay){
 		dayBanner = 'today'
@@ -86,6 +85,9 @@ const startCodeBlockEventHandler = () => {
 			updateAllBars()
 		}
 	}
+	addHistory('Code Block Attempt', `${PC.name} finished a code block. Great work!`, 'fas fa-code historyIcon', `CodeBlock${thisBlock.codeId}`)
+	$(`#HistoryCodeBlock${thisBlock.codeId}`).hide()
+
 }
 
 module.exports = startCodeBlockEventHandler

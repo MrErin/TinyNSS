@@ -21,3 +21,6 @@
   * debuff
   * historyText (styling detail text)
 * #History is the div where all the cards land
+* HUD
+  * need: class on all need bars (not work points or confidence)
+  * meter-confidence

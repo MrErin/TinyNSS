@@ -4,6 +4,7 @@ const dbSave = require('../Helpers/dbSaver')
 const updateAllBars = require('../DOM/updateAllBars')
 const codeBlockTextDisplay = require('./codeBlockTextDisplay')
 const $ = require('jquery')
+const addHistoryDetails = require('../DOM/addHistoryDetails')
 
 
 const askForHelpEventHandler = (codeId, complication) => {
@@ -21,12 +22,12 @@ const askForHelpEventHandler = (codeId, complication) => {
 			PC.confidence += instructor.thumbsUpValue
 			PC.social += 10
 			$('#complicationBanner').text(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
-			addHistoryDetail(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`, `HistoryContentCodeBlock${codeId}`)
+			addHistoryDetails(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`, `HistoryContentCodeBlock${codeId}`)
 			addHistoryEffectList(`Confidence: ${instructor.thumbsUpValue}`, `historyEffectsCodeBlock${codeId}`)
 
 		} else {
 			$('#complicationBanner').text(`${instructor.name} helped you out!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
-			addHistoryDetail(`${instructor.name} helped you out!`, `HistoryContentCodeBlock${codeId}`)
+			addHistoryDetails(`${instructor.name} helped you out!`, `HistoryContentCodeBlock${codeId}`)
 		}
 	}
 	dbSave(db)

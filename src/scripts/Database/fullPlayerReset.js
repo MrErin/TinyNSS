@@ -4,8 +4,8 @@ const fullPlayerReset = (database) => {
 	const Game = db.Game
 
 	PC.isNew = true
-	PC.workPoints = 0
-	PC.confidence = 3
+	PC.coderPoints = 0
+	PC.confidence = 5
 	PC.energy = 100
 	PC.hunger = 50
 	PC.social = 50

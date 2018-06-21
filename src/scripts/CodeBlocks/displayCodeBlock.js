@@ -20,6 +20,7 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 	$('#modalCanvas').off('click', '#closeModal')
 	$('#modalCanvas').on('click', '#closeModal', function(){
 		$('#modalCanvas').removeClass('is-active')
+		$(`#HistoryCodeBlock${codeId}`).remove()
 		$('#playerInput').val('')
 		pauseTime(ticker)
 		startTime()
