@@ -51,6 +51,10 @@ section:empty {
 .debuff {
   color: red; }
 
+#closeCodeBlockWarning {
+  display: none;
+  border: 1px solid #000; }
+
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

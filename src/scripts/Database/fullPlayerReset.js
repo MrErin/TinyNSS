@@ -8,8 +8,8 @@ const fullPlayerReset = (database) => {
 	PC.confidence = 9.5
 	PC.energy = 100
 	PC.hunger = 90
-	PC.social = 0
-	PC.fun = 5
+	PC.social = 20
+	PC.fun = 20
 	Game.currentDay = 0
 
 	return db

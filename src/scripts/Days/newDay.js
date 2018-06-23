@@ -17,7 +17,7 @@ const newDay = () => {
 	const Player = db.Player
 
 	//stuff that happens to close out the previous day
-	addHistory(`End of Day ${Game.currentDay}`, 'Great job!', 'far fa-moon historyIcon', 0)
+	// addHistory(`End of Day ${Game.currentDay}`, 'Great job!', 'far fa-moon historyIcon', 0)
 
 	if (dayCheck(db) === true) {
 		Game.currentDay++

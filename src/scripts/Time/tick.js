@@ -29,7 +29,7 @@ const tick = () => {
 	// 	updateAllBars()
 	// }
 	// }
-	console.log(`tick ${tickCounter}`)
+	// console.log(`tick ${tickCounter}`)
 	tickCounter++
 }
 

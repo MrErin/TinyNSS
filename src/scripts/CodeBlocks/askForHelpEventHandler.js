@@ -14,7 +14,6 @@ const askForHelpEventHandler = (codeId, complication) => {
 	const PC = db.Player
 	let thumbsUpNum = getRandomNumber(1,5)
 
-
 	if (complication !== 'correct'){
 		codeBlockTextDisplay(codeId, 'correct')
 		$('#askForHelp').prop('disabled', true)
@@ -30,7 +29,7 @@ const askForHelpEventHandler = (codeId, complication) => {
 
 		} else {
 			$('#complicationBanner').text(`${instructor.name} helped you out!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
-			addHistoryDetails(`${instructor.name} helped you out!`, 'far fa-smile-wink', 'buff', `HistoryContentCodeBlock${codeId}`)
+			addHistoryDetails(`${instructor.name} helped you out!`, 'far fa-smile-wink', 'buff', `CodeBlock${codeId}`)
 		}
 	}
 	// dbSave(db)

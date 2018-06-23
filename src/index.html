@@ -114,15 +114,12 @@
                 <p id="codeBlockTitle" class="modal-card-title"></p>
                 <button id="closeModal" class="delete" aria-label="close"></button>
             </header>
+            <div class="modal-card-body has-background-danger has-text-white" id="closeCodeBlockWarning">If you exit the code block without finishing it, you will not be refunded your spent energy.</div>
             <div id="dayBanner" class="modal-card-body"></div>
             <div id="complicationBanner" class="modal-card-body"></div>
             <section class="modal-card-body">
                 <div>
-                    <pre>
-                            <code id="codeBlockContent">
-                                <!-- this is where the code block should display -->
-                            </code>
-                        </pre>
+                    <pre><code id="codeBlockContent"><!-- this is where the code block should display --></code></pre>
                 </div>
                 <textarea class="textarea" id="playerInput" placeholder="Type the code!"></textarea>
             </section>

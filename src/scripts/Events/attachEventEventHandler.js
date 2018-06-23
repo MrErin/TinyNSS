@@ -86,7 +86,7 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 			// PC.energy += event.energyValue
 			addHistoryEffectList(`Energy: ${event.energyValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			if(event.coderPointValue !== 0) {
-				updateStats('codePoints', PC.coderPoints, event.coderPointValue)
+				updateStats('coderPoints', PC.coderPoints, event.coderPointValue)
 				// PC.coderPoints += event.coderPointValue
 				addHistoryEffectList(`Coder Points: ${event.coderPointValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			}
