@@ -7,6 +7,7 @@ const getRandomNumber = require('../Helpers/getRandomNumber')
 const needCheck = require('../PlayerStats/needCheck')
 const addHistoryEffectList = require('../DOM/addHistoryEffectList')
 const addHistoryDetails = require('../DOM/addHistoryDetails')
+const updateStats = require('../PlayerStats/updateStats')
 
 let eventUniqueKey = 1
 const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
@@ -28,58 +29,70 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 		PC.isNew = false
 		let isBuff = getRandomNumber(1,5)
 
-		if (needCheck('energy', PC.energy, minEnergy, 10000)){
+		// if (needCheck('energy', PC.energy, minEnergy, 10000)){
+		if (updateStats('energy', PC.energy, event.energyValue) === true) {
+
 			// addHistory(`${PC.name} ${event.eventStartText}`)
 			addHistory(eventHeader, `${PC.name} ${event.eventStartText}`, eventIcon, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 
 			if (isBuff !== 2) {
 				if(event.confidenceBuffValue !== 0) {
-					PC.confidence += event.confidenceBuffValue
+					updateStats('confidence', PC.confidence, event.confidenceBuffValue)
+					// PC.confidence += event.confidenceBuffValue
 					addHistoryEffectList(`Confidence: ${event.confidenceBuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 
 				}
 				if(event.hungerBuffValue !== 0) {
-					PC.hunger += event.hungerBuffValue
+					updateStats('hunger', PC.hunger, event.hungerBuffValue)
+					// PC.hunger += event.hungerBuffValue
 					addHistoryEffectList(`Hunger: ${event.hungerBuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				if(event.socialBuffValue !== 0) {
-					PC.social += event.socialBuffValue
+					updateStats('social', PC.social, event.socialBuffValue)
+					// PC.social += event.socialBuffValue
 					addHistoryEffectList(`Social: ${event.socialBuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				if(event.funBuffValue !== 0) {
-					PC.fun += event.funBuffValue
+					updateStats('fun', PC.fun, event.funBuffValue)
+					// PC.fun += event.funBuffValue
 					addHistoryEffectList(`Fun: ${event.funBuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				addHistoryDetails(event.buffText, 'far fa-grin-beam', 'buff', `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			} else {
 				if(event.confidenceDebuffValue !== 0) {
 
-					PC.confidence += event.confidenceDebuffValue
+					updateStats('confidence', PC.confidence, event.confidenceDebuffValue)
+					// PC.confidence += event.confidenceDebuffValue
 					addHistoryEffectList(`Confidence: ${event.confidenceDebuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				if(event.hungerDebuffValue !== 0) {
-					PC.hunger += event.hungerDebuffValue
+					// PC.hunger += event.hungerDebuffValue
+					updateStats('hunger', PC.hunger, event.hungerDebuffValue)
 					addHistoryEffectList(`Hunger: ${event.hungerDebuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				if(event.socialDebuffValue !== 0) {
-					PC.social += event.socialDebuffValue
+					updateStats('social', PC.social, event.socialDebuffValue)
+					// PC.social += event.socialDebuffValue
 					addHistoryEffectList(`Social: ${event.socialDebuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				if(event.funDebuffValue) {
-					PC.fun += event.funDebuffValue
+					updateStats('fun', PC.fun, event.funDebuffValue)
+					// PC.fun += event.funDebuffValue
 					addHistoryEffectList(`Fun: ${event.funDebuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
 				addHistoryDetails(event.debuffText, 'far fa-frown-open', 'debuff', `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			}
-			PC.energy += event.energyValue
+			updateStats('energy', PC.energy, event.energyValue)
+			// PC.energy += event.energyValue
 			addHistoryEffectList(`Energy: ${event.energyValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			if(event.coderPointValue !== 0) {
-				PC.coderPoints += event.coderPointValue
+				updateStats('codePoints', PC.coderPoints, event.coderPointValue)
+				// PC.coderPoints += event.coderPointValue
 				addHistoryEffectList(`Coder Points: ${event.coderPointValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			}
 		}
-		dbSave(db)
-		updateAllBars()
+		// dbSave(db)
+		// updateAllBars()
 	})
 	eventUniqueKey++
 }
