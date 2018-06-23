@@ -10,6 +10,7 @@ const deathCheck = require('../PlayerStats/deathCheck')
 const pauseTime = require('../Time/pauseTime')
 const addHistory = require('../DOM/addHistory')
 const $ = require('jquery')
+const updateStats = require('../PlayerStats/updateStats')
 
 
 const startCodeBlockEventHandler = () => {
@@ -75,16 +76,22 @@ const startCodeBlockEventHandler = () => {
 		break
 	}
 
-	if (deathCheck('hunger', PC.hunger, 0)){
-		if (((needCheck('energy', PC.energy, minEnergy, 10000)) === true) && ((wellnessCheck(PC.hunger, PC.social, PC.fun)) === true)) {
+	// if (deathCheck('hunger', PC.hunger, 0)){
+	// 	if (((needCheck('energy', PC.energy, minEnergy, 10000)) === true) && ((wellnessCheck(PC.hunger, PC.social, PC.fun)) === true)) {
+	if (wellnessCheck(PC.hunger, PC. social, PC.fun) === true) {
+		if (updateStats('energy', PC.energy, Game.energyPerCodeBlock) === true) {
 			pauseTime(ticker)
 			displayCodeBlock(thisBlock.codeId, codeBlockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language)
-			PC.energy += Game.energyPerCodeBlock
 			cblSave(cbl)
-			dbSave(db)
-			updateAllBars()
 		}
+
+
+		// PC.energy += Game.energyPerCodeBlock
+		// dbSave(db)
+		// updateAllBars()
 	}
+	// 	}
+	// }
 	addHistory('Code Block Attempt', `${PC.name} finished a code block. Great work!`, 'fas fa-code historyIcon', `CodeBlock${thisBlock.codeId}`)
 	$(`#HistoryCodeBlock${thisBlock.codeId}`).hide()
 

@@ -15,6 +15,12 @@ const dayPlayerReset = (database) => {
 	} else {
 		PC.hunger += 30
 	}
+	if (PC.social <= 10) {
+		PC.social += 20
+	}
+	if (PC.fun <= 10) {
+		PC.fun += 20
+	}
 
 	return db
 }
