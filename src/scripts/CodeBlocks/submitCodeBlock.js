@@ -4,7 +4,6 @@ const updateAllBars = require('../DOM/updateAllBars')
 const $ = require('jquery')
 const startTime = require('../Time/startTime')
 const pauseTime = require('../Time/pauseTime')
-const addHistory = require('../DOM/addHistory')
 const addHistoryEffectList = require('../DOM/addHistoryEffectList')
 
 const submitCodeBlock = (complication, codeId) => {
@@ -18,6 +17,7 @@ const submitCodeBlock = (complication, codeId) => {
 		PC.coderPoints += 20
 		addHistoryEffectList('Confidence: + 0.5', `CodeBlock${codeId}`)
 		addHistoryEffectList('Coder Points: + 20', `CodeBlock${codeId}`)
+
 	} else if (complication === 'timid'){
 		PC.confidence += 1.5
 		PC.coderPoints += 30

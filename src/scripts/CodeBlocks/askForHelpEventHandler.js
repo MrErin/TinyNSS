@@ -5,7 +5,7 @@ const updateAllBars = require('../DOM/updateAllBars')
 const codeBlockTextDisplay = require('./codeBlockTextDisplay')
 const $ = require('jquery')
 const addHistoryDetails = require('../DOM/addHistoryDetails')
-
+const addHistoryEffectList = require('../DOM/addHistoryEffectList')
 
 const askForHelpEventHandler = (codeId, complication) => {
 	const db = dbLoad()
@@ -23,11 +23,11 @@ const askForHelpEventHandler = (codeId, complication) => {
 			PC.social += 10
 			$('#complicationBanner').text(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
 			addHistoryDetails(`${instructor.name} helped you out and gave you a thumbs up! What a confidence boost!`, 'far fa-thumbs-up', 'buff', `CodeBlock${codeId}`)
-			addHistoryEffectList(`Confidence: ${instructor.thumbsUpValue}`, `historyEffectsCodeBlock${codeId}`)
+			addHistoryEffectList(`Thumbs Up Confidence Boost: +${instructor.thumbsUpValue}`, `CodeBlock${codeId}`)
 
 		} else {
 			$('#complicationBanner').text(`${instructor.name} helped you out!`).removeClass(`${complication}Flag`).addClass('instructorFlag correctFlag')
-			addHistoryDetails(`${instructor.name} helped you out!`, 'far fa-smile-wink', 'buff' `HistoryContentCodeBlock${codeId}`)
+			addHistoryDetails(`${instructor.name} helped you out!`, 'far fa-smile-wink', 'buff', `HistoryContentCodeBlock${codeId}`)
 		}
 	}
 	dbSave(db)

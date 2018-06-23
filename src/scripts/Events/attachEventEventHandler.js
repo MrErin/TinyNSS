@@ -8,7 +8,6 @@ const needCheck = require('../PlayerStats/needCheck')
 const addHistoryEffectList = require('../DOM/addHistoryEffectList')
 const addHistoryDetails = require('../DOM/addHistoryDetails')
 
-
 let eventUniqueKey = 1
 const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 	$(`#${buttonId}`).click(() => {
@@ -37,6 +36,7 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 				if(event.confidenceBuffValue !== 0) {
 					PC.confidence += event.confidenceBuffValue
 					addHistoryEffectList(`Confidence: ${event.confidenceBuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
+
 				}
 				if(event.hungerBuffValue !== 0) {
 					PC.hunger += event.hungerBuffValue
@@ -53,6 +53,7 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 				addHistoryDetails(event.buffText, 'far fa-grin-beam', 'buff', `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			} else {
 				if(event.confidenceDebuffValue !== 0) {
+
 					PC.confidence += event.confidenceDebuffValue
 					addHistoryEffectList(`Confidence: ${event.confidenceDebuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
