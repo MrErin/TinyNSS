@@ -50,8 +50,7 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 					PC.fun += event.funBuffValue
 					addHistoryEffectList(`Fun: ${event.funBuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
-				addHistoryDetails(event.buffText, `HistoryContenteventDay${db.Game.currentDay}${eventUniqueKey}`)
-				$($(`HistoryContenteventDay${db.Game.currentDay}${eventUniqueKey}`)).addClass('buff')
+				addHistoryDetails(event.buffText, 'far fa-grin-beam', 'buff', `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			} else {
 				if(event.confidenceDebuffValue !== 0) {
 					PC.confidence += event.confidenceDebuffValue
@@ -69,8 +68,7 @@ const attachEventEventHandler = (buttonId, eventArray, eventIndex) => {
 					PC.fun += event.funDebuffValue
 					addHistoryEffectList(`Fun: ${event.funDebuffValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 				}
-				addHistoryDetails(event.debuffText, `HistoryContenteventDay${db.Game.currentDay}${eventUniqueKey}`)
-				$($(`HistoryContenteventDay${db.Game.currentDay}${eventUniqueKey}`)).addClass('debuff')
+				addHistoryDetails(event.debuffText, 'far fa-frown-open', 'debuff', `eventDay${db.Game.currentDay}${eventUniqueKey}`)
 			}
 			PC.energy += event.energyValue
 			addHistoryEffectList(`Energy: ${event.energyValue}`, `eventDay${db.Game.currentDay}${eventUniqueKey}`)

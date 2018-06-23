@@ -29,23 +29,71 @@ const addHistory = (cardTitle, startText, icon, idNum) => {
 		'div',
 		'',
 		`HistoryHeader${keyId}`,
-		'historyHeader'
+		'historyHeader level'
 	)
 	apnd(card, historyHeader)
+
+	const historyIconDiv = componentFactory(
+		'div',
+		'',
+		`HistoryHeaderIcon${keyId}`,
+		'historyIcon card-header-icon, is-one-fifth, level-left'
+	)
+	apnd(historyHeader, historyIconDiv)
+
 	const historyIcon = componentFactory(
 		'i',
 		'',
 		'',
-		`${icon} is-size-1`
+		`${icon} is-size-2 level-item`
 	)
-	apnd(historyHeader, historyIcon)
+	apnd(historyIconDiv, historyIcon)
 	const historyTitle = componentFactory(
 		'div',
 		cardTitle,
 		'',
-		'historyTitle card-header-title'
-
+		'historyTitle card-header-title column is-size-4'
 	)
+	apnd(historyHeader, historyTitle)
+	if(startText !== '') {
+
+
+		const contentWrap = componentFactory(
+			'div',
+			'',
+			`HistoryContentWrap${keyId}`,
+			''
+		)
+		apnd(card, contentWrap)
+		const startTextWrap = componentFactory(
+			'div',
+			'',
+			`HistoryStartTextContentWrap${keyId}`,
+			'columns'
+		)
+		apnd(contentWrap, startTextWrap)
+		const startTextBox = componentFactory(
+			'div',
+			startText,
+			'',
+			'column is-three-fifths is-offset-one-fifth'
+		)
+		apnd(startTextWrap, startTextBox)
+		const effectsWrap = componentFactory(
+			'div',
+			'',
+			`HistoryEffectsWrap${keyId}`,
+			'columns content'
+		)
+		apnd(card, effectsWrap)
+		const effectList = componentFactory(
+			'ul',
+			'',
+			`historyEffects${keyId}`,
+			'historyEffects column is-three-fifths is-offset-one-fifth'
+		)
+		apnd(effectsWrap, effectList)
+	}
 
 
 

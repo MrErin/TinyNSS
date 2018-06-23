@@ -52,14 +52,16 @@ section:empty {
     display: none;
 }
 
+.historyEffects {
+    border-top: 1px solid #8c8b8b;
+}
+
 .buff {
-    background-color: green;
+    color: green;
 }
-
-.debuff {
-    background-color: red;
+.debuff{
+    color: red;
 }
-
 
 //nss colors
 // linear-gradient(to right, #f0452d 0%, #f26c2d 100%)

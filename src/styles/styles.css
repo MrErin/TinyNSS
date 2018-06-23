@@ -42,11 +42,14 @@ meter::-webkit-meter-even-less-good-value {
 section:empty {
   display: none; }
 
+.historyEffects {
+  border-top: 1px solid #8c8b8b; }
+
 .buff {
-  background-color: green; }
+  color: green; }
 
 .debuff {
-  background-color: red; }
+  color: red; }
 
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
