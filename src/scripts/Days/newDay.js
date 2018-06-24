@@ -10,16 +10,21 @@ const dayCheck = require('../Days/dayCheck')
 const create_CodeBlockList = require('../CodeBlocks/create_CodeBlockList')
 const startTime = require('../Time/startTime')
 const pauseTime = require('../Time/pauseTime')
+const addHistoryDetails = require('../DOM/addHistoryDetails')
+
 
 const newDay = () => {
 	const db = dbLoad()
 	const Game = db.Game
 	const Player = db.Player
+	const oldScore = localStorage.getItem('tinyNSSScore')
+	const score = Player.coderPoints
 
 	//stuff that happens to close out the previous day
 	// addHistory(`End of Day ${Game.currentDay}`, 'Great job!', 'far fa-moon historyIcon', 0)
 
 	if (dayCheck(db) === true) {
+
 		Game.currentDay++
 
 		//reset player. If it's day one, user gets a full reset
@@ -43,7 +48,12 @@ const newDay = () => {
 		pauseTime(ticker)
 		startTime()
 	} else {
-		console.log('At some point, this was triggered. Add an else history message back to the Days/newDay script')
+		addHistory('You Finished The Game!', `${db.Player.name} earned ${score} points. Great Job!`, 'fas fa-trophy', 'gameOver')
+		if (oldScore < score) {
+			localStorage.setItem('tinyNSSScore', score)
+			addHistoryDetails('You got a new high score!', 'fas fa-crown', 'buff', 'gameOver')
+		}
+
 	}
 
 
