@@ -25,7 +25,10 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 	}
 
 	//create banners and add classes to notify player whether this code is new or review, and what their level of confidence is
+	$('#complicationBanner').removeClass()
+	$('#complicationBanner').addClass('modal-card-body')
 	$('#complicationBanner').text(complicationMessage).addClass(`${complicationBanner}Flag`)
+	$('#dayBanner').removeClass()
 	$('#dayBanner').text(dayMessage).addClass(`${dayBanner}CodeBlock`)
 	$('#codeBlockTitle').text(`${language}: ${blockTitle}`)
 

@@ -31,7 +31,7 @@ const newDay = () => {
 	//valid game days are 1 - 10 rather than 0 - 9
 	if (today <= 10) {
 		PC.isNew = false
-		PC.energy = 100
+		updateStats('energy', 0, 100)
 		if (PC.confidence >= 6) {
 			updateStats('confidence', PC.confidence, -0.5)
 		} else {
