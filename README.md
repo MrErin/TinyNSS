@@ -6,7 +6,7 @@ See the [notebook](./docs/notebook/readme.md) for detailed design decisions.
 
 ## Currently Working On:
 
-Enhancements and bug squishes
+End to end testing and documentation
 
 ## Current Problem:
 
