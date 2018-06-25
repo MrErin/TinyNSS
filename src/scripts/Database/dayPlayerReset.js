@@ -5,9 +5,9 @@ const dayPlayerReset = (database) => {
 	PC.energy = 100
 
 	if (PC.confidence >= 6) {
-		PC.confidence -= 1
+		PC.confidence -= 0.5
 	} else {
-		PC.confidence += 1
+		PC.confidence += 0.5
 	}
 
 	if (PC.hunger >= 60) {

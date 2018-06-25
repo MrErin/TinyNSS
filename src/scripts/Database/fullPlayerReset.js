@@ -2,6 +2,11 @@ const fullPlayerReset = (database) => {
 	const db = database
 	const PC = db.Player
 	const Game = db.Game
+	const oldName = PC.name
+
+	const characterName = prompt('What\'s your name?', oldName)
+	PC.name = characterName
+	console.log('updated name from fullPlayerReset')
 
 	PC.isNew = true
 	PC.coderPoints = 0

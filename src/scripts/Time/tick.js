@@ -3,6 +3,7 @@ const deathCheck = require('../PlayerStats/deathCheck')
 const updateAllBars = require('../DOM/updateAllBars')
 const dbSave = require('../Helpers/dbSaver')
 const updateStats = require('../PlayerStats/updateStats')
+const calcConfidence = require('../PlayerStats/calcConfidence')
 
 let tickCounter = 0
 
@@ -23,7 +24,9 @@ const tick = () => {
 	// PC.social += socialDecay
 	updateStats('fun', PC.fun, funDecay)
 	// PC.fun += funDecay
-	updateStats('confidence', PC.confidence, confidenceDecay)
+	const confidenceAdjustment = calcConfidence(PC.confidence)
+	// console.log(`confidenceAdjustment: ${confidenceAdjustment}`)
+	updateStats('confidence', PC.confidence, (confidenceDecay * confidenceAdjustment))
 	// PC.confidence += confidenceDecay
 	// 	dbSave(db)
 	// 	updateAllBars()
