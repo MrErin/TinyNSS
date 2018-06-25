@@ -19,9 +19,9 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 	$('#dayBanner').text(dayMessage).addClass(`${dayBanner}CodeBlock`)
 	$('#codeBlockTitle').text(`${language}: ${blockTitle}`)
 	$('#closeModal').hover(function(){
-		$('#closeCodeBlockWarning').slideDown(500)
+		$('#closeCodeBlockWarning').slideDown('500')
 	}, function() {
-		$('#closeCodeBlockWarning').slideUp(500)
+		$('#closeCodeBlockWarning').slideUp('500')
 	})
 	$('#modalCanvas').off('click', '#closeModal')
 	$('#modalCanvas').on('click', '#closeModal', function(){
