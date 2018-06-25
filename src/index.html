@@ -4,131 +4,88 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Welcome to TinyNSS!</title>
+    <title>'This is a fun game!'</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
-        crossorigin="anonymous"></script>
 
 
 
 </head>
 
 <body>
-    <!-- main page div -->
+    <nav></nav>
+
+    <header></header>
     <div class="columns">
-        <!-- History card scroll -->
-        <div class="column is-4">
-            <div class="columns" id="graphics">
-
-                <img src="assets/1x1.png" />
-                <img src="assets/steveTeaches.png" />
-                <img src="assets/everyoneWorking.PNG" />
-                <img src="assets/talking1.PNG" />
-                <img src="assets/instructors1.PNG" />
-                <img src="assets/talking2.PNG" />
-                <img src="assets/instructors2.PNG" />
-            </div>
-            <div class="columns">
-                <div class="column" id="History"></div>
+        <div class="column">
+            <canvas id="gameBoard" class="gameBoard">
+            </canvas>
+        </div>
+        <div class="column">
+            <div id="controls">
+                <div id="foodControls" class="columns"></div>
+                <div id="partiesControls" class="columns"></div>
+                <div id="meetupsControls" class="columns"></div>
+                <div id="dayControls" class="columns"></div>
+                <div id="codeBlockControls" class="columns"></div>
+                <div id="timeControls" class="columns"></div>
             </div>
 
         </div>
-        <!-- Everything else Column -->
-        <div class="column" id="HUD">
-            <div class="columns box">
-                <h4 class="is-size-4 column is-one-third is-offset-by-one">Previous High Score:</h4>
-                <div id="score" class="column is-one-third is-size-4"></div>
-            </div>
-            <!-- Stat bar section -->
-            <div class="columns is-centered box">
-                <div id="Energy" class="column has-text-centered">
-                    <h4 class="is-size-4">Energy:</h4>
-                    <p id="energyLabel">100</p>
-                    <meter id="energyBar" class="need" value="100" min="0" max="100" high="60" low="30" optimum="75"></meter>
+    </div>
 
-                </div>
-                <div id="Hunger" class="column has-text-centered">
-                    <h4 class="is-size-4">Hunger:</h4>
-                    <p id="hungerLabel">100</p>
-                    <meter id="hungerBar" class="need" value="100" min="0" max="100" high="25" low="50" optimum="75"></meter>
+    <!-- row -->
+    <div class="columns">
 
-                </div>
-                <div id="Social" class="column has-text-centered">
-                    <h4 class="is-size-4">Social:</h4>
-                    <p id="socialLabel">100</p>
-                    <meter id="socialBar" class="need" value="100" min="0" max="100" high="25" low="50" optimum="75"></meter>
-
-                </div>
-                <div id="Fun" class="column has-text-centered">
-                    <h4 class="is-size-4">Fun:</h4>
-                    <p id="funLabel">100</p>
-                    <meter id="funBar" class="need" value="100" min="0" max="100" high="25" low="50" optimum="75"></meter>
-
-                </div>
-
-
-            </div>
-            <div class="columns is-centered box">
-                <!-- Confidence Bar section -->
-                <div id="Confidence" class="column has-text-centered">
-                    <h4 class="is-size-4">Confidence:</h4>
-                    <p id="confidenceLabel">6</p>
-                    <meter id="confidenceBar" class="meter-confidence" value="6" max="10" high="8.4" low="4.5" optimum="6"></meter>
-                </div>
-                <!-- Work Points -->
-                <div id="CoderPoints" class="column has-text-centered">
-                    <h4 class="is-size-4">Coder Points:</h4>
-                    <p id="coderPointsLabel">0</p>
-                    <progress id="coderPointsBar" class="progress" value="0" max="1000"></progress>
-                </div>
-
-            </div>
-            <!-- buttons section -->
-            <div class="columns box">
-                <!-- food, end day, pause/start -->
-                <div class="column is-one-fourth">
-                    <h4 class="is-size-4">Controls:</h4>
-                    <div id="foodControls"></div>
-                    <div id="dayControls"></div>
-                    <div id="timeControls"></div>
-                    <div class="is-divider-vertical" data-content="OR"></div>
-                </div>
-                <!-- code block button -->
-                <div class="column is-one-fourth">
-                    <h4 class="is-size-4">Code:</h4>
-                    <div class="level" id="codeBlockControls"></div>
-                </div>
-                <!-- parties buttons -->
-                <div class="column is-one-fourth is-vertical">
-                    <h4 class="is-size-4">Parties:</h4>
-                    <div id="partiesControls"></div>
-
-                </div>
-                <!-- meetups buttons -->
-                <div class="column is-one-fourth is-vertical">
-                    <h4 class="is-size-4">Meetups:</h4>
-                    <div id="meetupsControls"></div>
-
-                </div>
-            </div>
-
+        <div class="column">
+            <h1 class="title">History:</h1>
+            <section id="History" class="section">
+            </section>
         </div>
+        <div id="HUD" class="column">
+            <section id="Confidence">
+                <label for="confidenceBar" id="confidenceLabel">Confidence: Current Value: 5 (optimal)</label>
+                <meter id="confidenceBar" class="meter-confidence" value="6" max="10" high="9" low="4" optimum="6"></meter>
 
+            </section>
+            <section id="Energy">
+                <label for="energyBar" id="energyLabel">Energy: Current Value: 100</label>
+                <meter id="energyBar" value="100" min="0" max="100" high="60" low="30" optimum="75"></meter>
+            </section>
+            <section id="WorkPoints">
+                <label for="workPointsBar" id="workPointsLabel">Work: Current Value: 0</label>
+                <progress id="workPointsBar" class="progress" value="0" min="0" max="100"></progress>
+            </section>
+            <section id="Needs" class="section">
+                <h1 class="title">Player Needs</h1>
+                <label for="hungerBar" id="hungerLabel">Hunger: Current Value: 100</label>
+                <meter id="hungerBar" class="need" value="100" min="0" max="100" low="25" high="50" optimum="75"></meter>
+
+                <label for="socialBar" id="socialLabel">Social: Current Value: 100</label>
+                <meter id="socialBar" class="need" value="100" min="0" max="100" low="25" high="50" optimum="75"></meter>
+
+                <label for="funBar" id="funLabel">Fun: Current Value: 100</label>
+                <meter id="funBar" class="need" value="100" min="0" max="100" low="25" high="50" optimum="75"></meter>
+            </section>
+        </div>
     </div>
     <!-- code for codeBlock modal -->
     <div id="modalCanvas" class="modal">
         <div class="modal-background"></div>
-        <div id="modalWindow" class="modal-card">
+        <div class="modal-card">
             <header class="modal-card-head">
                 <p id="codeBlockTitle" class="modal-card-title"></p>
                 <button id="closeModal" class="delete" aria-label="close"></button>
             </header>
-            <div class="modal-card-body has-background-danger has-text-white" id="closeCodeBlockWarning">If you exit the code block without finishing it, you will not be refunded your spent energy.</div>
-            <div id="dayBanner" class=""></div>
+            <div id="dayBanner" class="modal-card-body"></div>
             <div id="complicationBanner" class="modal-card-body"></div>
             <section class="modal-card-body">
                 <div>
-                    <pre><code id="codeBlockContent"><!-- this is where the code block should display --></code></pre>
+                    <pre>
+                        <code id="codeBlockContent">
+                            <!-- this is where the code block should display -->
+                        </code>
+                    </pre>
                 </div>
                 <textarea class="textarea" id="playerInput" placeholder="Type the code!"></textarea>
             </section>
@@ -138,6 +95,7 @@
             </footer>
         </div>
     </div>
+
     <footer></footer>
 
     <script src=" ./bundle.js "></script>

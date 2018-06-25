@@ -14,9 +14,8 @@ const create_NewGame = gameName => {
 				writable: false,
 				enumerable: true,
 			},
-			//confidence decay should always be positive because the confidence adjustment function will determine whether confidence needs to go up or down.
 			confidenceDecayRate: {
-				value: 0.1,
+				value: -0.1,
 				enumerable: true,
 			},
 			hungerDecayRate: {
@@ -43,6 +42,7 @@ const create_NewGame = gameName => {
 		}
 	)
 
+	// create key in game database
 	const entityUID = 'Game'
 	gameDatabase.entities[entityUID] = game
 	gameDatabase.entities.Events = []

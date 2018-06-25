@@ -1,4 +1,3 @@
-//this function randomizes the items in the input array. it's called for the code block and event buttons to randomize the events passed to the click handlers.
 const buildRandomArray = (inputArray) => {
 	let currentIndex = inputArray.length, temporaryValue, randomIndex
 
