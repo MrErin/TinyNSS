@@ -1,9 +1,10 @@
 const dbLoad = require('../Helpers/dbLoader')
 
+
+//this function updates the meter and progress bars on the HUD so the player can check the character's stats.
 const updateBar = (barId) => {
 	const bar = document.getElementById(`${barId}Bar`)
 	const label = document.getElementById(`${barId}Label`)
-	const upper = barId.replace(/^\w/, c => c.toUpperCase())
 	const db = dbLoad()
 
 	if (barId === 'confidence') {

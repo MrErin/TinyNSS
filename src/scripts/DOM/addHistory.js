@@ -4,6 +4,7 @@ const apnd = require('./apnd')
 
 let historyUniqueKey = 1
 
+//this function is used to add a message to the history section. This builds the card upon which all other messages are based. If you only have one thing to say, use this function to say it.
 const addHistory = (cardTitle, startText, icon, idNum) => {
 	const frag = document.createDocumentFragment()
 
@@ -94,11 +95,6 @@ const addHistory = (cardTitle, startText, icon, idNum) => {
 		)
 		apnd(effectsWrap, effectList)
 	}
-
-
-
-
-
 
 	$($(frag)).prependTo($('#History'))
 

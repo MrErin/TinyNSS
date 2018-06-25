@@ -1,6 +1,7 @@
 const componentFactory = require('./componentFactory')
 const apnd = require('./apnd')
 
+//this function adds an additional element to the history card that includes space for an icon and some text. This is usually used to notify the player of buffs and debuffs on events such as asking for help or attending meetups.
 const addHistoryDetails = (detail, icon, classes, sectionId) => {
 	const parent = document.getElementById(`HistoryContentWrap${sectionId}`)
 	const detailWrap = componentFactory(

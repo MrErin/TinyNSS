@@ -3,8 +3,9 @@ const buttonFactory = require('../DOM/buttonFactory')
 const nukeControlSection = require('../DOM/nukeControlSection')
 const addHistory = require('../DOM/addHistory')
 
+//this function destroys and rebuilds the pause/start time button and its handler
 const buildPauseStartButton = (timeAction) => {
-	// debugger
+
 	nukeControlSection('timeControls')
 
 	if(timeAction === 'start') {

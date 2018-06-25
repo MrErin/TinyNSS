@@ -1,8 +1,7 @@
 const create_CodeBlock = require('./cb_create_CodeBlock')
 
 // blockLanguage, blockTitle, dayNumber, correctBlock, timidBlock, delusionalBlock, correctCode
-
-
+//created these by concatenating the code in Excel spreadsheet included in this directory. If you want to make changes, use that. It's easier.
 const initializeCodeBlocks = () => {
 	create_CodeBlock('JavaScript', 'Declaring Variables', 0, 'const a = 1\nconst b = \'string\'\nconst c = a + b', 'const _ = 1\nconst b = _string_\n_____ c = a _ b', 'var a = 1\nconst b = string\nconst c = a & b', 'const a = 1Æconst b = \'string\'Æconst c = a + b')
 	create_CodeBlock('JavaScript', 'Declaring Variables', 0, 'let myVariable = \'\'\nmyVariable = \'Not blank\'\nmyVariable = 100', 'let __________ = \'\'\nmyVariable _ \'Not blank\'\nmy___iable = 100', 'vars myVariable = \'\'\nmyVariable != \'Not blank\'\nmyVar = 100', 'let myVariable = \'\'ÆmyVariable = \'Not blank\'ÆmyVariable = 100')
@@ -53,7 +52,6 @@ const initializeCodeBlocks = () => {
 	create_CodeBlock('JavaScript', 'React Render Function', 10, 'render() {\n return (\n <div>\n <h1>Title</h1>\n </div>\n )\n}', 'render() {\n ______ (\n <div>\n <h1>Title</h1>\n </div>\n )\n}', 'return() {\n const element = (\n <div>\n <h1>Title</h1>\n </div><p>Hey!</p>\n )\n}', 'render() {Æ return (Æ <div>Æ <h1>Title</h1>Æ </div>Æ )Æ}')
 	create_CodeBlock('JavaScript', 'Props in React', 10, 'this.props.myArray.map(element => <MyComponent key={element.id} />)', 'this._____.myArray.map(element => <MyComponent ___={element.id} __)', 'props.myArray.filter(element (function) => <MyComponent id={element.id} />)', 'this.props.myArray.map(element => <MyComponent key={element.id} />)')
 	create_CodeBlock('JavaScript', 'React State', 10, 'state = {\n userName: \'\',\n userId: \'\'\n}', 'state = _\n userName: \'\',\n userId_ \'\'\n}', 'stuff = [\n userName: (\'\'),\n userId: \'\'\n]', 'state = {Æ userName: \'\',Æ userId: \'\'Æ}')
-
 }
 
 module.exports = initializeCodeBlocks

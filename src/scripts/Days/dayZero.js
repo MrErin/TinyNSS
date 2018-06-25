@@ -1,6 +1,7 @@
 const dbLoad = require('../Helpers/dbLoader')
 const create_CodeBlockList = require('../CodeBlocks/create_CodeBlockList')
 
+//this function is only run on page load to update the score and create the code block list for day 0
 const dayZero = () => {
 	const db = dbLoad()
 

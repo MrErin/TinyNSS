@@ -1,3 +1,4 @@
+//this function is run only when the game is first loaded (or reloaded) to set the player's starting stats and reset the game days. It will also ask for the player's name, but will default to an existing name if there is one.
 const fullPlayerReset = (database) => {
 	const db = database
 	const PC = db.Player
@@ -10,7 +11,7 @@ const fullPlayerReset = (database) => {
 
 	PC.isNew = true
 	PC.coderPoints = 0
-	PC.confidence = 9.5
+	PC.confidence = 3
 	PC.energy = 100
 	PC.hunger = 90
 	PC.social = 20

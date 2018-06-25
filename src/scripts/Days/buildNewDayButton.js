@@ -1,9 +1,8 @@
 const newDay = require('./newDay')
 const $ = require('jquery')
 const buttonFactory = require('../DOM/buttonFactory')
-const dbLoad = require('../Helpers/dbLoader')
 
-
+//this function destroys and rebuilds the "End this day" button and its handler
 const buildNewDayButton = () => {
 	buttonFactory('End This Day', 'button', 'newDay', 'dayControls')
 	$('#dayControls').off('click', '#newDay')

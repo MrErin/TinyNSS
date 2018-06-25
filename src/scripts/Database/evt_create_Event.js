@@ -1,6 +1,5 @@
 const gameDatabase = require('./create_GameDatabase')
 
-
 const create_Event = (
 	eventType,
 	name,

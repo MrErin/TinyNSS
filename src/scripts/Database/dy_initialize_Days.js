@@ -1,7 +1,7 @@
 const create_Day = require('./dy_create_Day')
 
 const initializeDays = () => {
-	create_Day(0, 'Tutorial')
+	create_Day(0, 'Today we will learn: how to play this game.')
 	create_Day(1, 'Today we will learn: arrow syntax, the command line, and the Node Package Manager.')
 	create_Day(2, 'Today we will learn: GitHub CLI, printing to the DOM, and factory functions.')
 	create_Day(3, 'Today we will learn: if conditions, for and forEach loops, interpolation, and nested CSS.')
@@ -12,7 +12,6 @@ const initializeDays = () => {
 	create_Day(8, 'Today we will learn: jQuery fade effects and animations.')
 	create_Day(9, 'Today we will learn: AJAX get, JSON server, and Promise.all')
 	create_Day(10, 'Today we will learn: REACT!')
-
 }
 
 module.exports = initializeDays

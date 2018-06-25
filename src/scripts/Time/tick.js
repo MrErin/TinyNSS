@@ -1,12 +1,8 @@
 const dbLoad = require('../Helpers/dbLoader')
-const deathCheck = require('../PlayerStats/deathCheck')
-const updateAllBars = require('../DOM/updateAllBars')
-const dbSave = require('../Helpers/dbSaver')
 const updateStats = require('../PlayerStats/updateStats')
 const calcConfidence = require('../PlayerStats/calcConfidence')
 
-let tickCounter = 0
-
+//this function runs every two seconds while time is unpaused during the game. It steadily decays the character's needs and draws confidence towards optimum.
 const tick = () => {
 	const db = dbLoad()
 	let PC = db.Player
@@ -15,25 +11,11 @@ const tick = () => {
 	const funDecay = db.Game.funDecayRate
 	const confidenceDecay = db.Game.confidenceDecayRate
 
-	// if (deathCheck('energy', PC.energy, 10)) {
-	// 	if (deathCheck('hunger', PC.hunger, 0)) {
-	// PC.isNew = false
 	updateStats('hunger', PC.hunger, hungerDecay)
-	// PC.hunger += hungerDecay
 	updateStats('social', PC.social, socialDecay)
-	// PC.social += socialDecay
 	updateStats('fun', PC.fun, funDecay)
-	// PC.fun += funDecay
 	const confidenceAdjustment = calcConfidence(PC.confidence)
-	// console.log(`confidenceAdjustment: ${confidenceAdjustment}`)
 	updateStats('confidence', PC.confidence, (confidenceDecay * confidenceAdjustment))
-	// PC.confidence += confidenceDecay
-	// 	dbSave(db)
-	// 	updateAllBars()
-	// }
-	// }
-	// console.log(`tick ${tickCounter}`)
-	tickCounter++
 }
 
 module.exports = tick
