@@ -16,6 +16,10 @@ const create_Instructor = (type, instructorId, name, thumbsUpValue, imageLink) =
 				value: name,
 				enumerable: true
 			},
+			dialogueOptions: {
+				value: [],
+				enumerable: true
+			},
 			thumbsUpValue: {
 				value: thumbsUpValue,
 				enumerable: true

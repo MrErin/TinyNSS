@@ -1,16 +1,15 @@
 const dbLoad = require('../Helpers/dbLoader')
 
-
-//this function updates the meter and progress bars on the HUD so the player can check the character's stats.
 const updateBar = (barId) => {
 	const bar = document.getElementById(`${barId}Bar`)
 	const label = document.getElementById(`${barId}Label`)
+	const upper = barId.replace(/^\w/, c => c.toUpperCase())
 	const db = dbLoad()
 
 	if (barId === 'confidence') {
 		bar.value = db.Player.confidence
 
-		//!note: if making changes to these calculations, also need to change the similar switch statement in codeBlock/startCodeBlockEventHandler
+		//!note: if making changes to these calculations, also need to change the similar switch statement in codeBlock/buildStartCodeBlockButton
 		switch(Math.round(bar.value)) {
 		//0 to 4 is timid
 		case 0:
@@ -18,7 +17,7 @@ const updateBar = (barId) => {
 		case 2:
 		case 3:
 		case 4:
-			label.innerHTML = `Timid <br> ${bar.value}`
+			label.innerText = `${upper}: Current Value: Timid; ${bar.value}`
 			break
 
 		//5 to 8 is optimal
@@ -26,22 +25,22 @@ const updateBar = (barId) => {
 		case 6:
 		case 7:
 		case 8:
-			label.innerHTML = `Optimal <br> ${bar.value}`
+			label.innerText = `${upper}: Current Value: Optimal; ${bar.value}`
 			break
 
 		//9 to 10 is delusional
 		case 9:
 		case 10:
-			label.innerHTML = `Delusional <br> ${bar.value}`
+			label.innerText = `${upper}: Current Value: Delusional; ${bar.value}`
 			break
 
 		default:
-			console.log(`Something is wrong. check DOM/update bar. Confidence passed is ${bar.value}`)
+			label.innerText = `Something is wrong. Current value = ${bar.value}`
 			break
 		}
 	} else {
 		bar.value = db.Player[barId]
-		label.innerText = `${bar.value}`
+		label.innerText = `${upper}: Current Value: ${bar.value}`
 	}
 }
 
