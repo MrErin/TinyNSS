@@ -1,7 +1,7 @@
 const $ = require('jquery')
 const dbLoad = require('../Helpers/dbLoader')
 
-
+//this function determines the version of the code block that will be displayed based on the character's confidence
 const codeBlockTextDisplay = (codeId, complication) => {
 	const db = dbLoad()
 	let thisBlock = ''
