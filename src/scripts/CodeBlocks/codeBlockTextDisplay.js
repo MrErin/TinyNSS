@@ -1,7 +1,6 @@
 const $ = require('jquery')
 const dbLoad = require('../Helpers/dbLoader')
 
-
 const codeBlockTextDisplay = (codeId, complication) => {
 	const db = dbLoad()
 	let thisBlock = ''

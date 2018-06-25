@@ -9,6 +9,7 @@ const pauseTime = require('../Time/pauseTime')
 const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMessage, dayBanner, dayMessage, correctCode, language) => {
 	$('#modalCanvas').addClass('is-active')
 	codeBlockTextDisplay(codeId, complicationBanner)
+
 	$('#playerInput').focus()
 	if (complicationBanner === 'correct'){
 		$('#askForHelp').prop('disabled', true)
