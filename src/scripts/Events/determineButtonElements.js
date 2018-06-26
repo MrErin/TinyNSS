@@ -3,7 +3,6 @@ const getRandomNumber = require('../Helpers/getRandomNumber')
 const buildRandomArray = require('../Helpers/buildRandomArray')
 const buildEventButtons = require('./buildEventButtons')
 
-
 //type is either "party" or "meetup". min is the fewest allowable number of buttons. max is the most allowable number of buttons, plus 1
 const determineButtonElements = (type, min, max) => {
 

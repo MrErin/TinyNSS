@@ -21,5 +21,4 @@ const gameDatabase = Object.create(
 	}
 )
 
-
 module.exports = gameDatabase

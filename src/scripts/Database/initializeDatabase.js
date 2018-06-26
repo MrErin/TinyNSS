@@ -1,15 +1,18 @@
 const create_PlayerCharacter = require('./create_PlayerCharacter')
+const dbLoad = require('../Helpers/dbLoader')
 
-//todo: When out of testing phase, uncomment the below code and/or improve the look so it's more polished.
-
+//this function builds or rebuilds the database, including asking for the player's name
 const initializeDatabase = () => {
-	// const characterName = prompt('What\'s your name?')
-	// create_PlayerCharacter(characterName)
+	const db = dbLoad()
+	const oldName = ''
 
+	if(db !== null) {
+		oldName = db.Player.name
+	}
 
-
-	create_PlayerCharacter('Erin')
-
+	const characterName = prompt('What\'s your name?', oldName)
+	create_PlayerCharacter(characterName)
+	console.log('created new character in Initialize Database')
 }
 
 module.exports = initializeDatabase
