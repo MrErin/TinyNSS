@@ -39,6 +39,7 @@ const create_CodeBlock = (blockLanguage, blockTitle, dayNumber, correctBlock, ti
 			}
 		}
 	)
+
 	idGen++
 	const db = gameDatabase.entities
 	db.CodeBlocks.push(codeBlock)

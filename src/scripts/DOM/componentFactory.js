@@ -1,4 +1,4 @@
-const componentFactory = (type, contents, id, classes, parent) => {
+const componentFactory = (type, contents, id, classes) => {
 	const component = document.createElement(type)
 	const domParent = document.getElementById(parent)
 	if (type === 'input' || type === 'textarea'){
@@ -8,7 +8,7 @@ const componentFactory = (type, contents, id, classes, parent) => {
 	}
 	component.id = id
 	component.classList = classes
-	domParent.appendChild(component)
+	return component
 }
 
 module.exports = componentFactory

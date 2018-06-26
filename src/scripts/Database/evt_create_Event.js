@@ -1,12 +1,11 @@
 const gameDatabase = require('./create_GameDatabase')
 
-
 const create_Event = (
 	eventType,
 	name,
 	eventStartText,
 	energyBuffValue,
-	workPointValue,
+	coderPointValue,
 	confidenceBuffValue,
 	hungerBuffValue,
 	socialBuffValue,
@@ -33,8 +32,8 @@ const create_Event = (
 				value: energyBuffValue,
 				enumerable: true,
 			},
-			workPointValue: {
-				value: workPointValue,
+			coderPointValue: {
+				value: coderPointValue,
 				enumerable: true,
 			},
 			confidenceBuffValue: {

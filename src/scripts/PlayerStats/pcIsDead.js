@@ -1,12 +1,14 @@
 const $ = require('jquery')
-const pauseTime = require('./pauseTime')
+const pauseTime = require('../Time/pauseTime')
 const nukeControlSection = require('../DOM/nukeControlSection')
 const addHistory = require('../DOM/addHistory')
 
+//this function handles everything that needs to happen if the character dies (I think starving is the only means of death ATM)
 const pcIsDead = () => {
+
 	pauseTime(ticker)
 
-	//something to disable buttons
+	//disable the controls
 	$('#newDay').prop('disabled', true)
 	$('#eatFood').prop('disabled', true)
 	$('#startCodeBlock').prop('disabled', true)
@@ -15,8 +17,9 @@ const pcIsDead = () => {
 	nukeControlSection('partiesControls')
 	nukeControlSection('meetupsControls')
 
-	//notify player
-	addHistory('Game Over. Please try again.')
+	//notify the player
+	addHistory('Game Over', 'Please try again.',
+		'fas fa-ban historyIcon', 0)
 }
 
 module.exports = pcIsDead
