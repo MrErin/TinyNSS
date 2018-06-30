@@ -18,6 +18,7 @@ End to end testing and documentation
   * DOM/updateBar
 * button factory and component factory can be combined
 * in the code block minigame, I've used a function three different times to pass around a code block. I should modularize it but don't want to stop and rewrite things right now.
+* in Days/newDay I have to advance the day before doing anything else to avoid DB save conflicts. There should be a better way to do that.
 
 ## Sprint List (newest at top):
 

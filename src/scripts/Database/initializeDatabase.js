@@ -4,7 +4,7 @@ const dbLoad = require('../Helpers/dbLoader')
 //this function builds or rebuilds the database, including asking for the player's name
 const initializeDatabase = () => {
 	const db = dbLoad()
-	const oldName = ''
+	let oldName = ''
 
 	if(db !== null) {
 		oldName = db.Player.name

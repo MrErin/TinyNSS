@@ -54,7 +54,7 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 	})
 	$('#modalCanvas').off('keyup', '#playerInput')
 	$('#modalCanvas').on('keyup', '#playerInput', function(){
-		inputCheck(correctCode)
+		inputCheck(correctCode, codeId)
 	})
 	$('#submitCodeBlock').prop('disabled', true)
 	$('#modalCanvas').off('click', '#submitCodeBlock')

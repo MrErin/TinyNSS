@@ -13,6 +13,7 @@ const askForHelpEventHandler = (codeId, complication) => {
 	//get a random instructor
 	const instructor = db.Instructors[getRandomNumber(0, db.Instructors.length)]
 	const PC = db.Player
+
 	//there is a 1 in 4 chance the instructor will give a thumbs-up
 	let thumbsUpNum = getRandomNumber(1,5)
 

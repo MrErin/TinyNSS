@@ -10,6 +10,7 @@ let uniqueKey = 0
 
 //this function selects a random food from the food event table and builds a button and handler for the eating of that food.
 const buildFoodButton = () => {
+
 	buttonFactory('Eat', 'button', 'eatFood', 'foodControls')
 	$('#foodControls').off('click', '#eatFood')
 	$('#foodControls').on('click', '#eatFood', function(){
@@ -19,7 +20,8 @@ const buildFoodButton = () => {
 		PC.isNew = false
 
 		//if statement checks that the food will not cause the player's hunger score to go above 100.
-		if(updateStats('hunger', PC.hunger, chosenFood.hungerBuffValue) === true) {
+
+		if (PC.hunger + chosenFood.hungerBuffValue < 100) {
 			addHistory('Nom Nom Nom',`${PC.name} ${chosenFood.eventStartText}`, 'fas fa-utensils historyIcon', `foodDay${db.Game.currentDay}${uniqueKey}`)
 
 			//all if statements inside this one only add an effect to the list if an effect exists.
@@ -41,13 +43,16 @@ const buildFoodButton = () => {
 				addHistoryEffectList(`Social: ${chosenFood.socialBuffValue}`, `foodDay${db.Game.currentDay}${uniqueKey}`)
 			}
 			if (chosenFood.hungerBuffValue !== 0) {
-				//!not adding an update to hunger here because that should have been completed in the check of the if condition
+				updateStats('hunger', PC.hunger, chosenFood.hungerBuffValue)
 				addHistoryEffectList(`Hunger: ${chosenFood.hungerBuffValue}`, `foodDay${db.Game.currentDay}${uniqueKey}`)
 			}
 			if (chosenFood.funBuffValue !== 0) {
 				updateStats('fun', PC.fun, chosenFood.funBuffValue)
 				addHistoryEffectList(`Fun: ${chosenFood.funBuffValue}`, `foodDay${db.Game.currentDay}${uniqueKey}`)
 			}
+		}
+		else {
+			addHistory('Please Stop Feeding Me', 'I\'m about to bust out of my fat pants.', 'far fa-tired historyIcon', `foodDay${db.Game.currentDay}${uniqueKey}`)
 		}
 	})
 	uniqueKey++

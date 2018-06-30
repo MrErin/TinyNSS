@@ -3,11 +3,11 @@ const $ = require('jquery')
 
 //this function runs on every keyup to check the player's input when attempting code blocks.
 //it is called in the "displayCodeBlock.js" file.
-const inputCheck = (correctCode) => {
+const inputCheck = (correctCode, codeId) => {
 	const playerInputText = document.getElementById('playerInput').value
 	let inputCharacterCodes = []
 	const playerInputLength = playerInputText.length
-	console.log('input check', correctCode)
+	console.log(`Correct Code for block ${codeId}: ${correctCode}`)
 
 	//push the player's input character to the array
 	for (let i = 0; i < playerInputLength; i++) {
