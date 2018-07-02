@@ -20,12 +20,22 @@ const determineSave = () => {
 		console.log('created new database B')
 		gameDatabase.save()
 
-	//if the database exists but a game is already in progress, reset the player
+	//if the database exists but a game is already in progress...
 	} else if (db.Player.isNew === false) {
-		fullPlayerReset(db)
-		dbSave(db)
-		console.log('reset player')
-		return gameDatabase
+
+		//if the game in progress has made it past day 10, the entire game needs to be reset
+		if (db.Game.currentDay === 11) {
+			initializeDatabase()
+			console.log('reset game after day 10')
+			gameDatabase.save()
+
+		//if the game in progress is not on day 10, just the player needs to be reset
+		} else {
+			fullPlayerReset(db)
+			dbSave(db)
+			console.log('reset player')
+			return gameDatabase
+		}
 
 	//otherwise, use the existing database
 	} else {

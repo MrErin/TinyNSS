@@ -1,59 +1,40 @@
 # Events
 
-Events are planned occurrences that will give the player opportunities to meet basic needs and to gain points towards winning. Some events are optional and some are required.
+There are three types of events:
 
-## Calculations
+* Eating food
+* Attending a party
+* Attending a meetup
 
-To participate in any optional activities, only the PC's energy level will be taken into account. There will not be a wellness check.
+## Food
 
-Random effects in events: there is a 25% chance that the PC will receive either a buff or debuff from the event.
+Any time the player clicks the "Eat" button, a food is randomly chosen from the "Events/Food" array and that food's score is applied to the PC's hunger. 
 
-## Tutorial
+### Mechanics:
 
-* Default on, but option to skip
-* Walks player through all game mechanics
-  * Managing [basic needs](./BasicNeeds.md) and how they contribute to wellness
-    * Show the effects of a passed and a failed wellness check
-  * Keeping [confidence](./Confidence.md) in the sweet spot
-  * [Work Points](./WorkPoints.md): make a special point of saying there is no way to reduce work points. As you learn something, you can't unlearn it.
-  * [Code Blocks](./CodeBlocks.md) to earn points towards winning
-  * [Asking for help](./AskingForHelp.md) and the dangers of the "thumbs-up"
-  * Events and their effect on the basic needs and on winning the game.
-    * Include a buff event
+* The player is not allowed to eat if the PC is already full
+* The player is not allowed to eat if the PC doesn't have enough energy
+* The PC can starve to death if left unfed. The player will be notified that the game is over if the PC has starved to death.
 
-## Game Night
+## Parties and Meetups
 
-* Optional
-* Contributes to fun and social
-* Random Effects:
-  * Buff: the PC won a lot of games and confidence is boosted
-  * Debuff: the PC fought with other players and social is decreased
+Parties and meetups are very similar in their mechanics but they serve different functions. Generally, parties are more likely to boost the PC's hunger, social, and fun stats while meetups are more likely to award coder points and change confidence. At the start of each [game day](./Days.md), the game will create buttons for the events that have been randomly chosen
 
-## Party
+### Mechanics:
 
-* Optional
-* Contributes to fun and social
-* Random effects:
-  * Buff: Lampshade on the head! Fun is increased by much more than normal.
-  * Debuff: Lampshade on the head! PC embarrassed her/himself and confidence is decreased
+* Button creation
+  * 0, 1, or 2 parties are possible.
+  * 1, 2, or 3 meetups are possible.
+* Parties and meetups are randomly chosen from the database at the start of each day.
+* The player is notified of what happened during the event and of the stat changes caused by the event.
+* Most parties and meetups will be positive experiences, resulting in boosts to the PC's stats, confidence, and/or coder points. There is a 25% chance that the event will be negative in some way, resulting in a worsening of the player's confidence or stats. Coder points are never removed by negative events.
 
-## Group Work
+## Participation
 
-* Required, as it's a daytime activity
-* Contributes to work points, social, and confidence
-* Random effects:
-  * Buff: Group project got rocked, bonuses to work points
-  * Debuff: Group project was a trainwreck, decrease confidence
+The game performs the following checks before allowing the PC to initiate an event:
 
-## Meetups
-
-* Optional
-* Contributes to social and work points
-* Random effects:
-  * Buff: Had an insight, bonus to work points and confidence
-  * Debuff: Felt totally lost, decrease confidence
-
-## Find a Damn Job
-
-* Shows stats about the game and whether or not the player won
-* Display the quote: nothing is work unless you'd rather be doing something else
+* Food
+  * The PC must have enough energy to eat
+  * The PC must be at least hungry enough to accomodate the additional hunger points from the randomly chosen food.
+* Parties & Meetups
+  * The PC must have enough energy to attend the event

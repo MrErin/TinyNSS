@@ -9,48 +9,70 @@ const updateStats = (need, needValue, changeValue) => {
 	const db = dbLoad()
 	const PC = db.Player
 
-	//check to ensure the requested change won't drop the stat below 0
-	if ((needValue + changeValue) < 0) {
-		switch (need) {
-		case 'hunger':
-			PC.isNew = false
-			pcIsDead()
+	//fires if the change value is negative. Keeps the floor at 0.
+	if (changeValue < 0) {
+
+		//nothing should ever remove coderPoints
+		if (need === 'coderPoints') {
+			console.log('a function attempted to remove coderPoints')
 			return false
-		case 'energy':
+
+		//ensure requested stat won't drop below 0
+		} else if ((needValue + changeValue) < 0) {
+			switch (need) {
+			case 'hunger':
+				PC.isNew = false
+				PC.hunger = 0
+				pcIsDead()
+				dbSave(db)
+				updateAllBars()
+				return false
+			case 'energy':
+				PC.isNew = false
+				pcNeedsSleep()
+				return false
+			case 'social':
+			case 'fun':
+			case 'confidence':
+				PC.isNew = false
+				PC[need] = 0
+				dbSave(db)
+				updateAllBars()
+				return true
+			default:
+				console.log('something is wrong. check the playerStats/updateStats function.')
+				break
+			}
+		}
+
+		//if stat can drop without being artificially manipulated, update as normal
+		PC.isNew = false
+		PC[need] += changeValue
+		dbSave(db)
+		updateAllBars()
+		return true
+
+	//fires if the changeValue is positive. Caps stat bumps at 100 (except for CoderPoints, which are unlimited and confidence, which caps at 10)
+	} else {
+
+		//caps player confidence at 10
+		if ((need === 'confidence') && ((needValue + changeValue) > 10)) {
 			PC.isNew = false
-			pcNeedsSleep()
-			return false
-		case 'social':
-		case 'fun':
-		case 'confidence':
-			PC.isNew = false
-			PC[need] = 0
+			PC.confidence = 10
 			dbSave(db)
 			updateAllBars()
 			return true
-		default:
-			console.log('something is wrong. check the playerStats/updateStats function.')
-			break
+
+		//caps all stats except coderPoints at 100
+		} else if ((need !== 'coderPoints') && (needValue + changeValue >= 100)) {
+			PC.isNew = false
+			PC[need] = 100
+			dbSave(db)
+			updateAllBars()
+			return true
 		}
 
-		//check to determine if requested change will put player's confidence above 10
-	} else if ((need === 'confidence') && ((needValue + changeValue) > 10)) {
-		PC.isNew = false
-		PC.confidence = 10
-		dbSave(db)
-		updateAllBars()
-		return true
-
-		//check to determine if requested change will put player's other needs above 100
-	} else if ((needValue + changeValue) > 100) {
-		PC.isNew = false
-		PC[need] = 100
-		dbSave(db)
-		updateAllBars()
-		return true
-
-		//if everything is green, update the stat
-	} else {
+		//if stat can rise without being artificially manipulated, update as normal
 		PC.isNew = false
 		PC[need] += changeValue
 		dbSave(db)

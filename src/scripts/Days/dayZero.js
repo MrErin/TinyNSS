@@ -12,6 +12,8 @@ const dayZero = () => {
 	const currentScore = localStorage.getItem('tinyNSSScore')
 	const scoreBox = document.getElementById('score')
 	scoreBox.textContent = currentScore
+	const dayBox = document.getElementById('dayLabel')
+	dayBox.textContent = `Day ${db.Game.currentDay}`
 }
 
 module.exports = dayZero

@@ -1,5 +1,4 @@
 const dbLoad = require('../Helpers/dbLoader')
-const dbSave = require('../Helpers/dbSaver')
 const addHistory = require('../DOM/addHistory')
 const buildRandomizedButtons = require('../DOM/buildRandomizedButtons')
 const nukeControlSection = require('../DOM/nukeControlSection')
@@ -12,10 +11,11 @@ const getRandomNumber = require('../Helpers/getRandomNumber')
 const addHistoryEffectList = require('../DOM/addHistoryEffectList')
 const advanceTheDay = require('./advanceTheDay')
 const updateStats = require('../PlayerStats/updateStats')
+const gameOver = require('../DOM/gameOver')
 
 //this function resets the game for each new day by updating the character's stats, rebuilding the code block list, rolling for a confidence buff/debuff, notifying the player of changes, and notifying the player if the game is over.
 
-//!Note: advancing the day as the first item in this function in order to avoid db save conflicts. Possible refator opportunity in the future.
+//!Note: advancing the day as the first item in this function in order to avoid db save conflicts. Possible refactor opportunity in the future.
 const newDay = () => {
 
 	advanceTheDay()
@@ -32,25 +32,29 @@ const newDay = () => {
 	if (today <= 10) {
 		PC.isNew = false
 		updateStats('energy', 0, 100)
-		if (PC.confidence >= 6) {
-			updateStats('confidence', PC.confidence, -0.5)
-		} else {
-			updateStats('confidence', PC.confidence, 0.5)
-		}
+		// if (PC.confidence >= 6) {
+		// 	updateStats('confidence', PC.confidence, -0.5)
+		// } else {
+		// 	updateStats('confidence', PC.confidence, 0.5)
+		// }
 		if (PC.hunger >= 60) {
-			updateStats('hunger', PC.hunger, -30)
+			updateStats('hunger', PC.hunger, -10)
 		} else {
-			updateStats('hunger', PC.hunger, 30)
+			updateStats('hunger', PC.hunger, 10)
 		}
-		if (PC.social <= 10) {
-			updateStats('social', PC.social, 20)
-		}
-		if (PC.fun <= 10) {
-			updateStats('fun', PC.fun, 20)
-		}
+		// if (PC.social <= 10) {
+		// 	updateStats('social', PC.social, 20)
+		// }
+		// if (PC.fun <= 10) {
+		// 	updateStats('fun', PC.fun, 20)
+		// }
 
 		//declaring today message here to avoid bugs from having a day 11 at the top of the script
 		const todayMessage = db.Days[Game.currentDay].dayStartText
+
+		//update the day notification at the top of the screen
+		const dayBox = document.getElementById('dayLabel')
+		dayBox.textContent = `Day ${db.Game.currentDay}`
 
 		//add random confidence swing. If the random number is 2, there will be a confidence swing.
 		if (isConfidenceSwing === 2) {
@@ -81,6 +85,11 @@ const newDay = () => {
 		startTime()
 	} else if (today > 10) {
 		//if the ended day was the last day (day 10), you get the end screen
+
+		//disable the buttons and stop time
+		gameOver()
+
+		//notify the player
 		addHistory('You Finished The Game!', `${PC.name} earned ${score} points. Great Job!`, 'fas fa-trophy', 'gameOver')
 		addHistoryDetails('Refresh the page to play again!', 'fas fa-redo', '', 'gameOver')
 		if (oldScore < score) {

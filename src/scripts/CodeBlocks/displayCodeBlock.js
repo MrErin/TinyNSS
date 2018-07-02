@@ -54,8 +54,14 @@ const displayCodeBlock = (codeId, blockTitle, complicationBanner, complicationMe
 	})
 	$('#modalCanvas').off('keyup', '#playerInput')
 	$('#modalCanvas').on('keyup', '#playerInput', function(){
-		inputCheck(correctCode)
+		inputCheck(correctCode, codeId)
 	})
+
+	$('#modalCanvas').off('cut copy paste', '#playerInput')
+	$('#playerInput').on('cut copy paste',function(e) {
+		e.preventDefault()
+	})
+
 	$('#submitCodeBlock').prop('disabled', true)
 	$('#modalCanvas').off('click', '#submitCodeBlock')
 	$('#modalCanvas').on('click', '#submitCodeBlock', function(){

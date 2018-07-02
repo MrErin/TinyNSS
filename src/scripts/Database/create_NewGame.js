@@ -16,19 +16,19 @@ const create_NewGame = gameName => {
 			},
 			//confidence decay should always be positive because the confidence adjustment function will determine whether confidence needs to go up or down.
 			confidenceDecayRate: {
-				value: 0.1,
+				value: 0.2,
 				enumerable: true,
 			},
 			hungerDecayRate: {
-				value: -1,
+				value: -7,
 				enumerable: true,
 			},
 			socialDecayRate: {
-				value: -3,
+				value: -7,
 				enumerable: true,
 			},
 			funDecayRate: {
-				value: -1,
+				value: -7,
 				enumerable: true,
 			},
 			currentDay: {
