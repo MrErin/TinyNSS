@@ -40,8 +40,6 @@ meter::-webkit-meter-even-less-good-value {
 }
 
 #History {
-    // width: 800px;
-    // height: 400px;
     overflow-y: scroll;
     overflow-x:hidden;
 }
@@ -122,6 +120,6 @@ section:empty {
 //nss colors
 // linear-gradient(to right, #f0452d 0%, #f26c2d 100%)
 
-//make customizations above this import statement
+//all custom statements should be above the import statements
 @import "../node_modules/bulma/bulma.sass";
 @import "../node_modules/bulma-extensions/bulma-slider/dist/bulma-slider.sass"

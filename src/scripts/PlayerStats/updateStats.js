@@ -22,7 +22,10 @@ const updateStats = (need, needValue, changeValue) => {
 			switch (need) {
 			case 'hunger':
 				PC.isNew = false
+				PC.hunger = 0
 				pcIsDead()
+				dbSave(db)
+				updateAllBars()
 				return false
 			case 'energy':
 				PC.isNew = false
@@ -61,7 +64,7 @@ const updateStats = (need, needValue, changeValue) => {
 			return true
 
 		//caps all stats except coderPoints at 100
-		} else if ((need !== 'coderPoints') && (needValue + changeValue > 100)) {
+		} else if ((need !== 'coderPoints') && (needValue + changeValue >= 100)) {
 			PC.isNew = false
 			PC[need] = 100
 			dbSave(db)

@@ -11,11 +11,11 @@ const fullPlayerReset = (database) => {
 
 	PC.isNew = true
 	PC.coderPoints = 0
-	PC.confidence = 9
+	PC.confidence = 1
 	PC.energy = 100
-	PC.hunger = 10
-	PC.social = 20
-	PC.fun = 20
+	PC.hunger = 100
+	PC.social = 100
+	PC.fun = 100
 	Game.currentDay = 0
 
 	return db

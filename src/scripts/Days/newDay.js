@@ -32,22 +32,22 @@ const newDay = () => {
 	if (today <= 10) {
 		PC.isNew = false
 		updateStats('energy', 0, 100)
-		if (PC.confidence >= 6) {
-			updateStats('confidence', PC.confidence, -0.5)
-		} else {
-			updateStats('confidence', PC.confidence, 0.5)
-		}
+		// if (PC.confidence >= 6) {
+		// 	updateStats('confidence', PC.confidence, -0.5)
+		// } else {
+		// 	updateStats('confidence', PC.confidence, 0.5)
+		// }
 		if (PC.hunger >= 60) {
-			updateStats('hunger', PC.hunger, -30)
+			updateStats('hunger', PC.hunger, -10)
 		} else {
-			updateStats('hunger', PC.hunger, 30)
+			updateStats('hunger', PC.hunger, 10)
 		}
-		if (PC.social <= 10) {
-			updateStats('social', PC.social, 20)
-		}
-		if (PC.fun <= 10) {
-			updateStats('fun', PC.fun, 20)
-		}
+		// if (PC.social <= 10) {
+		// 	updateStats('social', PC.social, 20)
+		// }
+		// if (PC.fun <= 10) {
+		// 	updateStats('fun', PC.fun, 20)
+		// }
 
 		//declaring today message here to avoid bugs from having a day 11 at the top of the script
 		const todayMessage = db.Days[Game.currentDay].dayStartText
