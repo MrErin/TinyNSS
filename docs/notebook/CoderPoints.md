@@ -1,4 +1,4 @@
-# Work Points
+# Coder Points
 
 These are the points the player must earn to "graduate" NSS.
 

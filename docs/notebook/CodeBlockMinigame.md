@@ -1,65 +1,42 @@
 # Code Blocks Minigame
 
-The Code Blocks minigame is a stretch goal for this project as it is very complicated and I want to make sure I get the game on its feet before I focus on hanging bells on it.
+Attempting code blocks is the primary means the PC earns coder points. 
 
-## Examples:
+## Code Block Selection
 
-Code Blocks get more complicated as the days progress, but the user is still only typing the exact same characters given.
+The game is populated with ~50 possible code blocks, assigned to the days of the game in order of increasing difficulty. At the start of each game day, the game assembles a list of code blocks that meet the following criteria:
 
-* Declaring
-  * Array
-  * Object
-  * Variables let/const
-  * Functions
-* Defining
-  * Loops
-    * For
-    * For each
-    * For in
+* All code blocks from the current game day (today)
+* All code blocks from the previous game day (yesterday)
+* One code block randomly chosen from the next game day (tomorrow)
+
+This list of code blocks is randomized. Each time the player attempts a code block, the last block in the randomized list is used to start the minigame.
+
+## Basic Minigame
+
+If the PC has optimal confidence and attempts a code block, a modal form will open that displays a block of code and has a text area into which the player must type that block of code. As the player types, the game checks each character to ensure the correct one was typed. In optimal confidence, the player will win points simply for typing the code block exactly as it appears. Copy and paste are disabled.
 
 ## Complications
 
-Each code block will have three variations:
+In addition to the correct version of the code block, the player may see a different version of a given code block based on the PC's [confidence](./Confidence.md). These are the possible variations of a given code block:
 
 1. Correct:
-  a. the version of the block that will display when PC [confidence](./Confidence.md) is in the sweet spot.
-  a. This is also the only version that the game will recognize as correct and award points for.
+  a. the version of the block that will display when PC is in the sweet spot.
 1. Delusional:
-  a. the displayed Code Block will have mistakes in it, but only the Correct version will be accepted from the player and awarded points.
+  a. the displayed Code Block will have mistakes in it, but only the Correct version will be accepted.
 1. Timid:
-  a. the displayed Code Block will be missing pieces, but only the Correct version will be accepted from the player and awarded points.
-
-## Point Values
-
-* Minimal Points: "X"
-* Regular Points: "X"
-* Advanced Points: "X"
+  a. the displayed Code Block will have blank spots, but only the Correct version will be accepted.
 
 ## Mechanics
 
 * No copy/paste
-* Asking for help
-  * This is an option on every Code Block screen.
+* [Asking for help](./AskingForHelp.md)
+  * This is a button enabled if the PC's confidence is non-optimal.
   * Asking for help carries no point penalty
-* Abandon Code Block
+* Abandon Code Block (by closing the modal)
   * Always an option
   * Does not refund the energy expended to start the Code Block
-  * Has a small downward effect on Confidence
 * Time limit:
   * There is no timeout. The player may take as long as s/he needs to type the Code Block.
-  * Completing the Code Block in a shorter period of time will give more points towards final score.
 * Code Blocks require "X" amount of energy to attempt.
   * If the PC does not have enough energy, it responds, "No...I can't even."
-* Confidence-Based Complications:
-  * If PC confidence is too high, the Code Block will show the "Delusional" complication.
-    * If the player copies this code directly, they will be awarded minimal points and informed they made a mistake.
-      * Confidence will decrease somewhat, but may still be in the danger zone, and might plummet.
-    * If the player fixes the code, full credit is awarded, but confidence will increase.
-      * Only the "Correct" version of the Code Block will be accepted.
-      * The player will be informed that they achieved perfection and asked whether they're actually learning anything at this point or if they need to push boundaries/get out of the comfort zone.
-    * If the player asks for help, the correct version of the Code Block will appear and confidence will move towards stability.
-  * If PC confience is too low, the Code Block will show the "Timid" complication.
-    * If the player copies this code directly, Steve or one of the instructors will come over and offer help boosting confidence.
-    * If the player fixes the code, Advanced points are awarded and confidence buffs towards stability
-      * Note: only the "correct" version of the code will be accepted as an answer.
-    * If the player asks for help, they will receive direct attention from an instructor, awarding a confidence boost as well as revealing the "correct" answer.
