@@ -19,13 +19,13 @@
 
 ## Contents
 
-[Asking For Help](./AskingForHelp.md)
-[Player Stats/Needs](./BasicNeeds.md)
-[Code Block Minigame](./CodeBlockMinigame.md)
-[Coder Points](./CoderPoints.md)
-[Confidence](./Confidence.md)
-[Database Definitions](./DatabaseDefinitions.md)
-[Days](./Days.md)
-[Events](./Events.md)
-[Time](./Time.md)
-[Winning](./Winning.md)
+* [Asking For Help](./AskingForHelp.md)
+* [Player Stats/Needs](./BasicNeeds.md)
+* [Code Block Minigame](./CodeBlockMinigame.md)
+* [Coder Points](./CoderPoints.md)
+* [Confidence](./Confidence.md)
+* [Database Definitions](./DatabaseDefinitions.md)
+* [Days](./Days.md)
+* [Events](./Events.md)
+* [Time](./Time.md)
+* [Winning](./Winning.md)
